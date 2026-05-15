@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Learn More — Legal Authority Lab</title>
+<meta name="description" content="Articles, videos, and resources on AI for attorneys from Leisa Wintz, MS, Esq. Real talk on legal AI — no hype, no vendor pitch."/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0A0A0A;color:#F7F5F0;font-family:'Barlow',sans-serif;font-size:15px;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#0A0A0A;}::-webkit-scrollbar-thumb{background:#333;border-radius:2px;}
+.colorbar{height:4px;background:linear-gradient(to right,#FF1F8E 25%,#FF6B00 25% 50%,#C8D400 50% 75%,#00B5B8 75%);position:sticky;top:0;z-index:300;}
+nav{background:#0A0A0A;border-bottom:1px solid #1e1e1e;position:sticky;top:4px;z-index:200;}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:54px;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:9px;}
+.logo-mark{width:30px;height:30px;border:1.5px solid #FF1F8E;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
+.logo-mark span{display:block;height:2px;border-radius:1px;}
+.logo-mark span:nth-child(1){width:18px;background:#FF1F8E;}
+.logo-mark span:nth-child(2){width:12px;background:#FF6B00;}
+.logo-mark span:nth-child(3){width:7px;background:#C8D400;}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;line-height:1.1;}
+.logo-text em{display:block;font-style:normal;font-size:8px;font-weight:400;color:#444;letter-spacing:1px;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{font-size:12px;font-weight:500;color:#555;transition:color .15s;}
+.nav-links a:hover,.nav-links a.active{color:#F7F5F0;}
+.nav-cta{background:#FF1F8E!important;color:#000!important;padding:6px 14px;border-radius:2px;font-weight:700!important;font-size:11px!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.hamburger span{display:block;width:20px;height:2px;background:#F7F5F0;border-radius:1px;}
+.mobile-menu{display:none;background:#111;border-bottom:1px solid #1e1e1e;padding:12px 20px 16px;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;font-size:14px;color:#888;padding:10px 0;border-bottom:1px solid #1a1a1a;}
+.mobile-menu a.active,.mobile-menu a:hover{color:#F7F5F0;}
+.mob-cta{background:#FF1F8E;color:#000!important;text-align:center;font-weight:700;border-radius:2px;padding:11px;margin-top:8px;}
+/* PAGE HEADER */
+.page-hdr{background:#0d0d0d;border-bottom:1px solid #1a1a1a;padding:56px 20px 44px;}
+.ph-inner{max-width:1140px;margin:0 auto;}
+.pre{font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#FF1F8E;font-weight:700;margin-bottom:12px;}
+.page-hdr h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,7vw,64px);font-weight:900;line-height:0.95;letter-spacing:-1px;margin-bottom:14px;}
+.page-hdr p{font-size:14px;color:#888;max-width:560px;line-height:1.75;}
+/* FILTER TABS */
+.filter-bar{background:#0a0a0a;border-bottom:1px solid #1a1a1a;position:sticky;top:58px;z-index:100;overflow-x:auto;}
+.filter-inner{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;gap:0;white-space:nowrap;}
+.ftab{padding:13px 18px;font-size:12px;font-weight:600;color:#444;cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;font-family:'Barlow',sans-serif;}
+.ftab:hover{color:#F7F5F0;}
+.ftab.active{color:#F7F5F0;border-bottom-color:#FF1F8E;}
+/* SECTIONS */
+.section{padding:56px 20px;}
+.s-inner{max-width:1140px;margin:0 auto;}
+.sec-label{font-size:9px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #252525;}
+.sec-head{font-family:'Barlow Condensed',sans-serif;font-size:clamp(24px,4.5vw,40px);font-weight:900;line-height:1.0;letter-spacing:-0.5px;margin-bottom:12px;}
+.sec-sub{font-size:13px;color:#888;max-width:520px;line-height:1.75;margin-bottom:32px;}
+/* YOUTUBE */
+.yt-section{background:#0a0a0a;border-top:1px solid #1a1a1a;}
+.yt-channel{display:flex;align-items:center;gap:16px;padding:20px;background:#111;border:1px solid #252525;border-radius:3px;margin-bottom:28px;flex-wrap:wrap;}
+.yt-avatar{width:52px;height:52px;background:linear-gradient(135deg,#FF1F8E,#FF6B00);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.yt-info{flex:1;}
+.yt-info h3{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;margin-bottom:2px;}
+.yt-info p{font-size:11px;color:#555;}
+.yt-sub{background:#FF0000;color:#fff;padding:7px 14px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;white-space:nowrap;}
+.yt-sub:hover{opacity:.85;}
+/* VIDEO GRID */
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.vc{background:#111;border:1px solid #1a1a1a;border-radius:3px;overflow:hidden;transition:border-color .15s;}
+.vc:hover{border-color:#333;}
+.vc-thumb{aspect-ratio:16/9;background:#161616;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;position:relative;overflow:hidden;}
+.vc-thumb iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:none;}
+.vc-thumb iframe.active{display:block;}
+.play-btn{width:44px;height:44px;background:rgba(255,31,142,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.play-btn::after{content:'';border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:3px;}
+.vc-thumb p{font-size:11px;color:#333;text-align:center;padding:0 12px;}
+.vc-info{padding:13px;}
+.vc-cat{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:5px;}
+.vc-info h4{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;line-height:1.25;margin-bottom:4px;}
+.vc-info p{font-size:11px;color:#555;}
+/* YT PLACEHOLDER */
+.yt-placeholder{text-align:center;padding:48px 20px;background:#111;border:1px dashed #252525;border-radius:3px;}
+.yt-placeholder h3{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;margin-bottom:10px;}
+.yt-placeholder p{font-size:13px;color:#555;max-width:380px;margin:0 auto 20px;line-height:1.75;}
+/* BLOG LAYOUT */
+.blog-layout{display:grid;grid-template-columns:1fr 300px;gap:28px;align-items:flex-start;}
+/* POST CARDS */
+.post-card{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:3px;overflow:hidden;margin-bottom:10px;transition:border-color .15s;}
+.post-card:hover{border-color:#333;}
+.post-card.featured{border-color:#FF1F8E;}
+.post-body{padding:22px 20px;}
+.post-cat{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:8px;}
+.post-card h3{font-family:'Barlow Condensed',sans-serif;font-size:clamp(17px,3vw,22px);font-weight:900;line-height:1.1;margin-bottom:8px;}
+.post-card p{font-size:12px;color:#888;line-height:1.7;margin-bottom:14px;}
+.post-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.post-by{font-size:10px;color:#333;}
+.post-read{font-size:11px;font-weight:700;color:#FF1F8E;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px;text-transform:uppercase;}
+.post-read::after{content:' →';}
+/* SIDEBAR */
+.sidebar-card{background:#111;border:1px solid #1a1a1a;border-radius:3px;padding:18px;margin-bottom:10px;}
+.sidebar-card h4{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #1e1e1e;}
+.sb-post{padding:9px 0;border-bottom:1px solid #1a1a1a;}
+.sb-post:last-child{border-bottom:none;}
+.sb-post h5{font-size:12px;font-weight:600;line-height:1.35;margin-bottom:3px;color:#ccc;}
+.sb-post span{font-size:10px;color:#333;}
+.topic-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.t-tag{font-size:10px;padding:4px 9px;border:1px solid #1e1e1e;border-radius:2px;color:#555;cursor:pointer;transition:all .15s;}
+.t-tag:hover{border-color:#FF1F8E;color:#FF1F8E;}
+/* EMAIL CAP */
+.email-cap{background:#0d0005;border:1px solid #FF1F8E;border-radius:3px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:32px;flex-wrap:wrap;}
+.email-cap h3{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;margin-bottom:5px;}
+.email-cap p{font-size:12px;color:#888;line-height:1.65;}
+.email-cap a{display:inline-block;background:#FF1F8E;color:#000;padding:11px 20px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;white-space:nowrap;}
+.email-cap a:hover{opacity:.85;}
+/* FOOTER */
+footer{background:#050505;border-top:1px solid #1a1a1a;padding:40px 20px 24px;}
+.foot-inner{max-width:1140px;margin:0 auto;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:28px;}
+footer h5{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:#2a2a2a;font-weight:700;margin-bottom:10px;}
+.flinks a{display:block;font-size:12px;color:#444;margin-bottom:6px;transition:color .15s;}
+.flinks a:hover{color:#F7F5F0;}
+.fbrand p{font-size:11px;color:#2a2a2a;margin-top:6px;line-height:1.65;}
+.foot-bot{border-top:1px solid #111;padding-top:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.foot-bot p{font-size:10px;color:#1e1e1e;}
+/* RESPONSIVE */
+@media(max-width:900px){.video-grid{grid-template-columns:1fr 1fr;}.blog-layout{grid-template-columns:1fr;}.sidebar-col{display:none;}}
+@media(max-width:720px){.nav-links{display:none;}.hamburger{display:flex;}.video-grid{grid-template-columns:1fr;}.foot-top{grid-template-columns:1fr 1fr;}}
+@media(max-width:460px){.foot-top{grid-template-columns:1fr;}.email-cap{flex-direction:column;}}
+</style>
+</head>
+<body>
+<div class="colorbar"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><span></span><span></span><span></span></div>
+      <div class="logo-text">Legal Authority Lab<em>AI Built for Law Firms</em></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="fl-family-law.html">FL Family Law</a>
+      <a href="cle-workshops.html">CLE &amp; Workshops</a>
+      <a href="learn-more.html" class="active">Learn More</a>
+      <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="nav-cta">Book a Call</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="fl-family-law.html">FL Family Law</a>
+    <a href="cle-workshops.html">CLE &amp; Workshops</a>
+    <a href="learn-more.html" class="active">Learn More</a>
+    <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="mob-cta">Book a Call</a>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <div class="ph-inner">
+    <div class="pre">— Learn More</div>
+    <h1>REAL TALK ON AI<br>FOR LEGAL PRACTICE.</h1>
+    <p>Articles and videos from a practicing attorney who builds this stuff inside a real firm. No hype. No vendor pitch. Just what actually works.</p>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="ftab active" onclick="showTab('all',this)">All</button>
+    <button class="ftab" onclick="showTab('video',this)">Videos</button>
+    <button class="ftab" onclick="showTab('blog',this)">Blog</button>
+    <button class="ftab" onclick="showTab('ethics',this)">Ethics</button>
+    <button class="ftab" onclick="showTab('discovery',this)">Discovery</button>
+    <button class="ftab" onclick="showTab('practice',this)">Practice Management</button>
+  </div>
+</div>
+
+<!-- YOUTUBE -->
+<section class="section yt-section" id="video-section">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#FF6B00">— Watch</div>
+    <h2 class="sec-head">Videos from the practice.</h2>
+    <p class="sec-sub">Live demos, workflow walkthroughs, and straight talk on what AI can and can't do for your firm.</p>
+
+    <div class="yt-channel">
+      <div class="yt-avatar">⚖️</div>
+      <div class="yt-info">
+        <h3>Legal Authority Lab</h3>
+        <!-- UPDATE: Replace YOUR_CHANNEL_HANDLE below with your actual YouTube handle when ready -->
+        <p>AI workflow systems for attorneys · Built by Leisa Wintz, MS, Esq. · Subscribe for demos and updates</p>
+      </div>
+      <!-- UPDATE: Replace YOUR_CHANNEL_HANDLE with your actual YouTube handle e.g. @LegalAuthorityLab -->
+      <a href="https://www.youtube.com/@YOUR_CHANNEL_HANDLE" target="_blank" class="yt-sub">Subscribe on YouTube</a>
+    </div>
+
+    <!-- VIDEO GRID — UPDATE: Replace VIDEO_ID_1, VIDEO_ID_2, VIDEO_ID_3 with actual YouTube video IDs -->
+    <!-- To find a video ID: youtube.com/watch?v=VIDEO_ID — copy the part after v= -->
+    <div class="video-grid">
+      <div class="vc">
+        <div class="vc-thumb" id="thumb-1" onclick="loadVideo('thumb-1','iframe-1','VIDEO_ID_1')">
+          <div class="play-btn"></div>
+          <p>Financial Discovery — Live Demo</p>
+          <iframe id="iframe-1" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="vc-info">
+          <div class="vc-cat" style="color:#FF1F8E">Live Demo</div>
+          <h4>Financial Discovery Bot — Running on a Real File</h4>
+          <p>The complete Discovery Suite running a financial affidavit from setup through gap analysis.</p>
+        </div>
+      </div>
+      <div class="vc">
+        <div class="vc-thumb" id="thumb-2" onclick="loadVideo('thumb-2','iframe-2','VIDEO_ID_2')">
+          <div class="play-btn"></div>
+          <p>AI Ethics for FL Attorneys</p>
+          <iframe id="iframe-2" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="vc-info">
+          <div class="vc-cat" style="color:#FF6B00">Ethics &amp; Compliance</div>
+          <h4>What the Florida Bar Actually Says About AI</h4>
+          <p>Competence, confidentiality, supervision — what Rules 1.1 and 5.3 actually require.</p>
+        </div>
+      </div>
+      <div class="vc">
+        <div class="vc-thumb" id="thumb-3" onclick="loadVideo('thumb-3','iframe-3','VIDEO_ID_3')">
+          <div class="play-btn"></div>
+          <p>Getting Started with Claude</p>
+          <iframe id="iframe-3" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="vc-info">
+          <div class="vc-cat" style="color:#00B5B8">Getting Started</div>
+          <h4>Setting Up Your First Claude Project for Legal Work</h4>
+          <p>Step-by-step setup of a Claude Project for professional legal use.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:24px;">
+      <!-- UPDATE: Replace YOUR_CHANNEL_HANDLE -->
+      <a href="https://www.youtube.com/@YOUR_CHANNEL_HANDLE" target="_blank" style="display:inline-block;border:1px solid #252525;color:#888;padding:9px 20px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;transition:border-color .15s;">View All Videos on YouTube →</a>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section" id="blog-section">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#FF1F8E">— Read</div>
+    <h2 class="sec-head">From the practice.</h2>
+    <p class="sec-sub">Articles on AI in legal practice — what works, what doesn't, what the ethics actually say, and how to use this without making your Bar counsel nervous.</p>
+
+    <div class="blog-layout">
+      <div class="blog-main">
+        <div class="post-card featured">
+          <div class="post-body">
+            <div class="post-cat" style="color:#FF1F8E">Featured · Discovery</div>
+            <h3>The Financial Affidavit Review That Used to Take 4 Hours Now Takes 45 Minutes</h3>
+            <p>Here's exactly what changed. Not a pitch — a real breakdown of what the Discovery Suite does, stage by stage, and where the time actually goes.</p>
+            <div class="post-meta"><span class="post-by">Leisa Wintz, MS, Esq. · 8 min read</span><span class="post-read">Read</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="post-body">
+            <div class="post-cat" style="color:#FF6B00">Ethics &amp; Compliance</div>
+            <h3>What Florida Bar Ethics Opinions on AI Actually Mean for Your Practice</h3>
+            <p>The Florida Bar has started issuing guidance on AI. Here's what it says, what it doesn't say, and what you need to have in place before your next client call.</p>
+            <div class="post-meta"><span class="post-by">Leisa Wintz, MS, Esq. · 6 min read</span><span class="post-read">Read</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="post-body">
+            <div class="post-cat" style="color:#00B5B8">Getting Started</div>
+            <h3>The First Thing I Tell Every Attorney Who Wants to Start Using AI</h3>
+            <p>Stop looking for the perfect tool. Start with the workflow. Here's the exact sequence I walk every new LAL client through in the first 30 days.</p>
+            <div class="post-meta"><span class="post-by">Leisa Wintz, MS, Esq. · 5 min read</span><span class="post-read">Read</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="post-body">
+            <div class="post-cat" style="color:#C8D400">Practice Management</div>
+            <h3>Why I Chose Lean Over Growth — and Built AI to Make It Work</h3>
+            <p>I could have hired 6 attorneys. I hired systems instead. Here's why the lean model is more profitable, more sustainable, and how AI made it possible without killing the quality of the work.</p>
+            <div class="post-meta"><span class="post-by">Leisa Wintz, MS, Esq. · 7 min read</span><span class="post-read">Read</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="post-body">
+            <div class="post-cat" style="color:#FF1F8E">Discovery</div>
+            <h3>The 9 Documents Attorneys Miss in Every Florida Family Law Financial Disclosure</h3>
+            <p>After 18 years and hundreds of matters, here's what's almost always missing from the opposing party's mandatory disclosure — and how to use AI to find it before mediation.</p>
+            <div class="post-meta"><span class="post-by">Leisa Wintz, MS, Esq. · 9 min read</span><span class="post-read">Read</span></div>
+          </div>
+        </div>
+        <div class="email-cap">
+          <div>
+            <h3>Get articles before they're public.</h3>
+            <p>New content goes to the email list first — a day or two before it's on the site.</p>
+          </div>
+          <a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank">Join the Email List</a>
+        </div>
+      </div>
+
+      <div class="blog-sidebar sidebar-col">
+        <div class="sidebar-card">
+          <h4>Recent Posts</h4>
+          <div class="sb-post"><h5>Why One-Time Purchase Is Not a Pricing Gimmick</h5><span>Practice Management</span></div>
+          <div class="sb-post"><h5>Data Handling on Claude — What Attorneys Need to Know</h5><span>Ethics &amp; Compliance</span></div>
+          <div class="sb-post"><h5>GAL Appointments and AI: How the Suite Works</h5><span>FL Family Law</span></div>
+          <div class="sb-post"><h5>Customizing Your Bot to Your Firm's Voice</h5><span>Getting Started</span></div>
+          <div class="sb-post"><h5>What Is a QC Gate and Why Does It Matter?</h5><span>Workflow</span></div>
+        </div>
+        <div class="sidebar-card">
+          <h4>Browse by Topic</h4>
+          <div class="topic-tags">
+            <span class="t-tag">Discovery</span>
+            <span class="t-tag">Ethics</span>
+            <span class="t-tag">FL Family Law</span>
+            <span class="t-tag">Getting Started</span>
+            <span class="t-tag">Drafting</span>
+            <span class="t-tag">Mediation</span>
+            <span class="t-tag">Practice Mgmt</span>
+            <span class="t-tag">GAL</span>
+            <span class="t-tag">Workflow</span>
+            <span class="t-tag">Claude</span>
+          </div>
+        </div>
+        <div class="sidebar-card" style="background:#0d0005;border-color:#FF1F8E;">
+          <h4 style="color:#FF1F8E;border-bottom-color:#2a0012;">Stay Current</h4>
+          <p style="font-size:12px;color:#888;margin-bottom:14px;line-height:1.65;">New articles and videos straight to your inbox. No vendor pitches.</p>
+          <a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank" style="display:block;background:#FF1F8E;color:#000;padding:9px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;text-align:center;transition:opacity .15s;">Join the Email List</a>
+        </div>
+        <div class="sidebar-card">
+          <h4>Boss Lady Esq.</h4>
+          <p style="font-size:12px;color:#888;margin-bottom:14px;line-height:1.65;">8,600+ female attorney business owners. Where the real conversations happen.</p>
+          <a href="https://www.facebook.com/share/g/17hGx79vhP/" target="_blank" style="display:block;background:transparent;border:1px solid #252525;color:#888;padding:9px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;text-align:center;transition:all .15s;">Join the Community</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="fbrand"><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;">Legal Authority Lab</div><p>AI workflow systems for attorneys, law firms, and paralegals. A subsidiary of Family Matters Law Group, P.A. · FL Bar No. 64399</p></div>
+      <div class="flinks"><h5>Navigate</h5><a href="index.html">Home</a><a href="fl-family-law.html">FL Family Law</a><a href="cle-workshops.html">CLE &amp; Workshops</a><a href="learn-more.html">Learn More</a></div>
+      <div class="flinks"><h5>Get Started</h5><a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank">Exploration Call</a><a href="https://calendly.com/leisawintz/lal--demo" target="_blank">Private Demo</a><a href="https://calendly.com/leisawintz/working-demo" target="_blank">Working Demo</a></div>
+      <div class="flinks"><h5>Connect</h5><a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank">Email List</a><a href="https://www.facebook.com/share/g/17hGx79vhP/" target="_blank">Boss Lady Esq.</a></div>
+    </div>
+    <div class="foot-bot">
+      <p>© 2026 Legal Authority Lab · A subsidiary of Family Matters Law Group, P.A. · FL Bar No. 64399</p>
+      <p><a href="mailto:leisa@legalauthoritylab.com" style="color:#222;">leisa@legalauthoritylab.com</a> · legalauthoritylab.com</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open');}
+
+// Filter tabs
+function showTab(cat,el){
+  document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  const vs=document.getElementById('video-section');
+  const bs=document.getElementById('blog-section');
+  if(cat==='video'){vs.style.display='block';bs.style.display='none';}
+  else if(cat==='blog'||cat==='ethics'||cat==='discovery'||cat==='practice'){vs.style.display='none';bs.style.display='block';}
+  else{vs.style.display='block';bs.style.display='block';}
+}
+
+// Load YouTube video on click
+// UPDATE: This function checks if the video ID is still a placeholder before loading
+function loadVideo(thumbId, iframeId, videoId){
+  if(videoId.startsWith('VIDEO_ID_')){
+    // YouTube channel not set up yet — show a friendly notice
+    const thumb=document.getElementById(thumbId);
+    thumb.innerHTML='<p style="color:#555;padding:20px;text-align:center;font-size:12px;">Video coming soon.<br>Subscribe on YouTube to be notified.</p>';
+    return;
+  }
+  const iframe=document.getElementById(iframeId);
+  const thumb=document.getElementById(thumbId);
+  iframe.src='https://www.youtube.com/embed/'+videoId+'?autoplay=1&rel=0';
+  iframe.classList.add('active');
+  // Hide play button
+  const btn=thumb.querySelector('.play-btn');
+  const lbl=thumb.querySelector('p');
+  if(btn)btn.style.display='none';
+  if(lbl)lbl.style.display='none';
+}
+</script>
+</body>
+</html>

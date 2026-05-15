@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CLE &amp; Workshops — Legal Authority Lab</title>
+<meta name="description" content="Live AI workshops and CLE for attorneys. AI Basics, FL Family Law AI, Ethics CLE, cohort program, and niche masterminds. Built by a practicing Florida attorney."/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0A0A0A;color:#F7F5F0;font-family:'Barlow',sans-serif;font-size:15px;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#0A0A0A;}::-webkit-scrollbar-thumb{background:#333;border-radius:2px;}
+.colorbar{height:4px;background:linear-gradient(to right,#FF1F8E 25%,#FF6B00 25% 50%,#C8D400 50% 75%,#00B5B8 75%);position:sticky;top:0;z-index:300;}
+nav{background:#0A0A0A;border-bottom:1px solid #1e1e1e;position:sticky;top:4px;z-index:200;}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:54px;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:9px;}
+.logo-mark{width:30px;height:30px;border:1.5px solid #FF1F8E;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
+.logo-mark span{display:block;height:2px;border-radius:1px;}
+.logo-mark span:nth-child(1){width:18px;background:#FF1F8E;}
+.logo-mark span:nth-child(2){width:12px;background:#FF6B00;}
+.logo-mark span:nth-child(3){width:7px;background:#C8D400;}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;line-height:1.1;}
+.logo-text em{display:block;font-style:normal;font-size:8px;font-weight:400;color:#444;letter-spacing:1px;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{font-size:12px;font-weight:500;color:#555;transition:color .15s;}
+.nav-links a:hover,.nav-links a.active{color:#F7F5F0;}
+.nav-cta{background:#FF1F8E!important;color:#000!important;padding:6px 14px;border-radius:2px;font-weight:700!important;font-size:11px!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.hamburger span{display:block;width:20px;height:2px;background:#F7F5F0;border-radius:1px;}
+.mobile-menu{display:none;background:#111;border-bottom:1px solid #1e1e1e;padding:12px 20px 16px;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;font-size:14px;color:#888;padding:10px 0;border-bottom:1px solid #1a1a1a;}
+.mobile-menu a.active,.mobile-menu a:hover{color:#F7F5F0;}
+.mob-cta{background:#FF1F8E;color:#000!important;text-align:center;font-weight:700;border-radius:2px;padding:11px;margin-top:8px;}
+/* PAGE HEADER */
+.page-hdr{background:#0d0d0d;border-bottom:1px solid #1a1a1a;padding:56px 20px 44px;}
+.ph-inner{max-width:1140px;margin:0 auto;}
+.pre{font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#FF1F8E;font-weight:700;margin-bottom:12px;}
+.page-hdr h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,7vw,64px);font-weight:900;line-height:0.95;letter-spacing:-1px;margin-bottom:14px;}
+.page-hdr p{font-size:14px;color:#888;max-width:580px;line-height:1.75;}
+/* EXPECT GRID */
+.expect-g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:36px;}
+.ex-c{background:#111;border:1px solid #252525;padding:18px;border-radius:2px;}
+.ex-icon{font-size:18px;margin-bottom:10px;}
+.ex-c h3{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;margin-bottom:5px;}
+.ex-c p{font-size:11px;color:#777;line-height:1.65;}
+/* SECTIONS */
+.section{padding:56px 20px;}
+.s-inner{max-width:1140px;margin:0 auto;}
+.sec-label{font-size:9px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #252525;}
+.sec-head{font-family:'Barlow Condensed',sans-serif;font-size:clamp(26px,5vw,44px);font-weight:900;line-height:1.0;letter-spacing:-0.5px;margin-bottom:12px;}
+.sec-sub{font-size:13px;color:#888;max-width:540px;line-height:1.75;margin-bottom:36px;}
+/* WORKSHOP CARDS */
+.wk-card{border:1px solid #222;border-radius:3px;padding:28px 24px;margin-bottom:10px;transition:border-color .15s;}
+.wk-card:hover{border-color:#333;}
+.wk-card.featured{border-color:#FF1F8E;background:#0d0005;}
+.wk-row{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;}
+.wk-left{flex:1;min-width:0;}
+.wk-right{text-align:right;flex-shrink:0;}
+.wk-type{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:8px;}
+.wk-card h3{font-family:'Barlow Condensed',sans-serif;font-size:clamp(18px,3.5vw,26px);font-weight:900;margin-bottom:8px;line-height:1.05;}
+.wk-desc{font-size:13px;color:#888;line-height:1.75;margin-bottom:14px;max-width:640px;}
+.wk-tags{display:flex;gap:7px;flex-wrap:wrap;}
+.tag{font-size:9px;font-weight:700;padding:3px 8px;border-radius:2px;background:#1a1a1a;color:#555;letter-spacing:0.5px;}
+.wk-price{font-family:'Barlow Condensed',sans-serif;font-size:clamp(22px,4vw,32px);font-weight:900;margin-bottom:5px;}
+.wk-date{font-size:9px;color:#555;background:#161616;border:1px solid #252525;padding:3px 9px;border-radius:2px;display:inline-block;margin-bottom:12px;font-family:'JetBrains Mono',monospace;}
+.btn-wk{display:inline-block;background:#FF1F8E;color:#000;padding:9px 18px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;white-space:nowrap;}
+.btn-wk:hover{opacity:.85;}
+.btn-wk-o{display:inline-block;background:transparent;color:#F7F5F0;padding:8px 18px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;border:1px solid #333;transition:border-color .15s;white-space:nowrap;}
+.btn-wk-o:hover{border-color:#888;}
+/* INCL NOTE */
+.incl-note{background:#001213;border:1px solid rgba(0,181,184,.2);border-radius:2px;padding:10px 14px;display:flex;gap:10px;align-items:flex-start;margin-top:14px;}
+.incl-note span{font-size:14px;flex-shrink:0;margin-top:1px;}
+.incl-note p{font-size:11px;color:#888;line-height:1.65;}
+.incl-note strong{color:#00B5B8;}
+/* MASTERMIND */
+.mm-card{background:#0d0005;border:1px solid #FF1F8E;border-radius:3px;padding:32px 28px;}
+.mm-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:24px;}
+.mm-badge{font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:#FF1F8E;font-weight:700;margin-bottom:8px;}
+.mm-card h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(22px,4vw,34px);font-weight:900;line-height:1.0;}
+.mm-price-block{text-align:right;flex-shrink:0;}
+.mm-price-big{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;}
+.mm-price-note{font-size:10px;color:#555;}
+.mm-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.mm-col p{font-size:13px;color:#888;line-height:1.75;margin-bottom:12px;}
+.mm-col h4{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:#C8D400;margin-bottom:10px;}
+.mm-list{list-style:none;}
+.mm-list li{padding:7px 0;border-bottom:1px solid #1a1a1a;font-size:12px;color:#aaa;display:flex;gap:9px;align-items:flex-start;line-height:1.5;}
+.mm-list li::before{content:'→';color:#C8D400;font-size:9px;margin-top:2px;flex-shrink:0;}
+.mm-actions{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap;}
+/* FAQ */
+.faq-item{border:1px solid #1a1a1a;border-radius:2px;margin-bottom:6px;overflow:hidden;}
+.faq-q{padding:14px 16px;font-size:13px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;background:#111;}
+.faq-q::after{content:'+';font-size:18px;color:#FF1F8E;font-weight:300;flex-shrink:0;line-height:1;}
+.faq-item.open .faq-q{background:#161616;}
+.faq-item.open .faq-q::after{content:'−';}
+.faq-a{display:none;padding:0 16px 14px;font-size:12px;color:#888;line-height:1.75;background:#111;}
+.faq-item.open .faq-a{display:block;}
+/* NOTIFY STRIP */
+.notify-strip{background:#0d0d0d;border-top:1px solid #1a1a1a;padding:48px 20px;text-align:center;}
+.notify-strip h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(26px,5vw,42px);font-weight:900;margin-bottom:10px;}
+.notify-strip p{font-size:13px;color:#888;max-width:420px;margin:0 auto 24px;line-height:1.75;}
+/* FOOTER */
+footer{background:#050505;border-top:1px solid #1a1a1a;padding:40px 20px 24px;}
+.foot-inner{max-width:1140px;margin:0 auto;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:28px;}
+footer h5{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:#2a2a2a;font-weight:700;margin-bottom:10px;}
+.flinks a{display:block;font-size:12px;color:#444;margin-bottom:6px;transition:color .15s;}
+.flinks a:hover{color:#F7F5F0;}
+.fbrand p{font-size:11px;color:#2a2a2a;margin-top:6px;line-height:1.65;}
+.foot-bot{border-top:1px solid #111;padding-top:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.foot-bot p{font-size:10px;color:#1e1e1e;}
+/* RESPONSIVE */
+@media(max-width:720px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .expect-g{grid-template-columns:1fr;}
+  .wk-row{flex-direction:column;}
+  .wk-right{text-align:left;}
+  .mm-top{flex-direction:column;}
+  .mm-price-block{text-align:left;}
+  .mm-cols{grid-template-columns:1fr;}
+  .foot-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:460px){.foot-top{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="colorbar"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><span></span><span></span><span></span></div>
+      <div class="logo-text">Legal Authority Lab<em>AI Built for Law Firms</em></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="fl-family-law.html">FL Family Law</a>
+      <a href="cle-workshops.html" class="active">CLE &amp; Workshops</a>
+      <a href="learn-more.html">Learn More</a>
+      <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="nav-cta">Book a Call</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="fl-family-law.html">FL Family Law</a>
+    <a href="cle-workshops.html" class="active">CLE &amp; Workshops</a>
+    <a href="learn-more.html">Learn More</a>
+    <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="mob-cta">Book a Call</a>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <div class="ph-inner">
+    <div class="pre">— CLE &amp; Workshops</div>
+    <h1>LIVE TRAINING BUILT<br>BY A PRACTICING<br>ATTORNEY.</h1>
+    <p>Not a vendor webinar. Not a pitch. LAL workshops are built for attorneys who want to actually understand AI — what it does, what it doesn't, and how to use it without losing control of your practice or your Bar license.</p>
+    <div class="expect-g">
+      <div class="ex-c"><div class="ex-icon">⚖️</div><h3>CLE credit available</h3><p>Ethics CLE included with every paid program. Substantive CLE hours where applicable. Florida Bar compliance built into the content.</p></div>
+      <div class="ex-c"><div class="ex-icon">🔴</div><h3>Live. Not recorded.</h3><p>You can ask questions in real time. You see the system run live. You leave with something actionable — not just notes from a slide deck.</p></div>
+      <div class="ex-c"><div class="ex-icon">🏛️</div><h3>Built for legal practice</h3><p>No generic AI hype. Every workshop is grounded in real legal workflows, real ethics obligations, and real use cases from an active family law firm.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- WORKSHOPS -->
+<section class="section">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#FF1F8E">— Upcoming Workshops</div>
+    <h2 class="sec-head">What's coming up.</h2>
+    <p class="sec-sub">Dates are being finalized. Get on the email list and you'll get the date, time, and registration link the moment it's set.</p>
+
+    <!-- AI BASICS -->
+    <div class="wk-card">
+      <div class="wk-row">
+        <div class="wk-left">
+          <div class="wk-type" style="color:#00B5B8">Workshop · 3 Hours · Virtual</div>
+          <h3>AI Basics for Attorneys</h3>
+          <p class="wk-desc">Start here if you're not sure where to start. Covers what AI is and what it isn't, how large language models work in plain terms, how to evaluate any AI tool for your practice, how to use AI without exposing client data, and how to build your first project. No tech background required. If you can type into a search bar, you can do this.</p>
+          <div class="wk-tags">
+            <span class="tag" style="color:#00B5B8;background:#001415">All Practice Areas</span>
+            <span class="tag" style="color:#00B5B8;background:#001415">Florida &amp; National</span>
+            <span class="tag">3 CLE Hours</span>
+            <span class="tag" style="color:#FF6B00;background:#160a00">Ethics Included</span>
+          </div>
+        </div>
+        <div class="wk-right">
+          <div class="wk-price" style="color:#00B5B8">$799</div>
+          <div class="wk-date">Date TBD</div>
+          <br>
+          <a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank" class="btn-wk">Get Notified</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FL FAMILY LAW AI -->
+    <div class="wk-card featured">
+      <div class="wk-row">
+        <div class="wk-left">
+          <div class="wk-type" style="color:#FF1F8E">Workshop · 4 Hours · Virtual · FL Family Law</div>
+          <h3>FL Family Law AI Workshop</h3>
+          <p class="wk-desc">Built specifically for Florida family law attorneys. Walks through the complete LAL system architecture — how each bot is structured, how the discovery pipeline runs, how the drafting bot works, how mediation prep is handled — and shows you the output in real time on a real file. You'll understand exactly what you're buying before you buy anything. FL-specific ethics discussion included.</p>
+          <div class="wk-tags">
+            <span class="tag" style="color:#FF1F8E;background:#0d0005">FL Family Law Only</span>
+            <span class="tag">4 CLE Hours</span>
+            <span class="tag" style="color:#FF6B00;background:#160a00">FL Ethics Included</span>
+            <span class="tag">Live Demo</span>
+          </div>
+        </div>
+        <div class="wk-right">
+          <div class="wk-price" style="color:#FF1F8E">$799</div>
+          <div class="wk-date">Date TBD</div>
+          <br>
+          <a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank" class="btn-wk">Get Notified</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ETHICS CLE -->
+    <div class="wk-card">
+      <div class="wk-row">
+        <div class="wk-left">
+          <div class="wk-type" style="color:#FF6B00">CLE · 3 Ethics Hours · Virtual</div>
+          <h3>AI Ethics for Attorneys</h3>
+          <p class="wk-desc">Florida Bar-compliant ethics CLE focused on AI use in legal practice. Covers competence obligations under Rule 1.1, confidentiality and data security, supervision of AI tools under Rule 5.3, disclosure obligations, and how to structure an AI use policy for your firm. Practical. Built on actual Bar guidance. Not a scare tactic — a roadmap for doing this right.</p>
+          <div class="wk-tags">
+            <span class="tag" style="color:#FF6B00;background:#160a00">3 Ethics CLE Hours</span>
+            <span class="tag">FL Bar Compliance</span>
+            <span class="tag">All Practice Areas</span>
+          </div>
+          <div class="incl-note">
+            <span>✓</span>
+            <p><strong>This CLE is included</strong> with every paid LAL program — AI Basics, FL Family Law AI Workshop, the cohort, and every mastermind. If you've already purchased a program, this is already yours.</p>
+          </div>
+        </div>
+        <div class="wk-right">
+          <div class="wk-price" style="color:#FF6B00">Included</div>
+          <div class="wk-date" style="border-color:#FF6B00;color:#FF6B00">With Paid Programs</div>
+          <br>
+          <a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank" class="btn-wk-o">Get Notified</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- COHORT -->
+    <div class="wk-card featured">
+      <div class="wk-row">
+        <div class="wk-left">
+          <div class="wk-type" style="color:#FF1F8E">Cohort · 3 Months · Small Group · Florida · Max 5</div>
+          <h3>FL Family Law AI Cohort</h3>
+          <p class="wk-desc">The most hands-on way to implement AI in your Florida family law practice. Five attorneys maximum. Three months. Two 2-hour group sessions per month. One 1-hour private session per month. You bring your real files. We build together. By the end, your firm has a working AI system customized to how you practice. This is not a course. This is implementation.</p>
+          <div class="wk-tags">
+            <span class="tag" style="color:#FF1F8E;background:#0d0005">FL Family Law Only</span>
+            <span class="tag" style="color:#C8D400;background:#0d0f00">Max 5 Attorneys</span>
+            <span class="tag">3 Months</span>
+            <span class="tag">Private + Group Sessions</span>
+          </div>
+        </div>
+        <div class="wk-right">
+          <div class="wk-price" style="color:#FF1F8E">$2,500</div>
+          <div class="wk-date">Next Cohort TBD</div>
+          <br>
+          <a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank" class="btn-wk">Get on the List</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MASTERMIND -->
+<section class="section" style="background:#0a0a0a;border-top:1px solid #1a1a1a;">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#C8D400">— Niche Masterminds</div>
+    <h2 class="sec-head">Go deep on AI for<br>your practice area.</h2>
+    <p class="sec-sub">Not a workshop. Not a course. A working group of attorneys building AI systems together for their specific practice area — with LAL as the architect.</p>
+    <div class="mm-card">
+      <div class="mm-top">
+        <div>
+          <div class="mm-badge">First Vertical · Coming Soon</div>
+          <h2>Estate Planning AI Mastermind</h2>
+        </div>
+        <div class="mm-price-block">
+          <div class="mm-price-big">$2,500</div>
+          <div class="mm-price-note">Per attorney · 6–8 weeks</div>
+        </div>
+      </div>
+      <div class="mm-cols">
+        <div class="mm-col">
+          <p>Estate planning was the first niche vertical on the LAL roadmap because the workflow is deep and the documentation burden is high. Trust drafting, pour-over wills, beneficiary review, client intake, document assembly — all of it maps cleanly to AI workflow architecture.</p>
+          <p>This mastermind is 6–8 weeks of small-group sessions building the estate planning AI system together. You'll leave with a working system built for your practice, not a template built for nobody.</p>
+        </div>
+        <div class="mm-col">
+          <h4>What's included</h4>
+          <ul class="mm-list">
+            <li>6–8 weeks of live 2-hour sessions</li>
+            <li>Maximum 8 attorneys per cohort</li>
+            <li>LAL-designed estate planning workflow architecture</li>
+            <li>Custom bot builds for your document types</li>
+            <li>FL and multi-state ethics guidance</li>
+            <li>Mastermind IP Agreement — you own what you build</li>
+            <li>Ethics CLE included</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mm-actions">
+        <a href="https://lp.constantcontactpages.com/sl/3526Fvo/legalauthoritylab" target="_blank" class="btn-wk">Join the Mastermind Waitlist</a>
+        <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="btn-wk-o">Talk to Leisa First</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#888">— Common Questions</div>
+    <h2 class="sec-head">Before you register.</h2>
+    <div style="margin-top:28px;">
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need to know anything about AI before attending?</div><div class="faq-a">No. AI Basics is the right starting point if you're new to all of this. It assumes no prior knowledge. The FL Family Law workshop assumes you've used a computer and filed a motion. That's it.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are these approved for Florida Bar CLE credit?</div><div class="faq-a">CLE accreditation is in process. Credit hours will be confirmed on the registration page for each program. Ethics CLE content is built to Florida Bar standards regardless of accreditation status.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What platform do the workshops run on?</div><div class="faq-a">All workshops run on Zoom. You'll receive the link after registration. Sessions are recorded for registered participants — not published publicly.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is the Ethics CLE really included with paid programs?</div><div class="faq-a">Yes. Every paid LAL program — AI Basics, FL Family Law AI Workshop, the cohort, and every mastermind — includes the Ethics CLE at no additional charge. It's part of the program, not an add-on.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">I'm not a Florida attorney. Can I attend?</div><div class="faq-a">AI Basics is open to all jurisdictions. The FL Family Law workshop, cohort, and FL-specific content are built on Florida law and procedure. Out-of-state attorneys are welcome to attend for general AI workflow education, but the substantive content is Florida-specific.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I attend a workshop before deciding whether to buy a system?</div><div class="faq-a">That's exactly the right move. The FL Family Law AI Workshop is designed to show you the complete system before you purchase anything. You see it run on a real file. You understand what you're buying. That's the point.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTIFY -->
+<div class="notify-strip">
+  <div class="pre" style="text-align:center">— Don't Miss the Dates</div>
+  <h2>Get on the list.</h2>
+  <p>All dates are TBD. When they're set, the email list gets them first — with registration links and any early-registration pricing.</p>
+  <a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank" class="btn-wk">Join the Email List</a>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="fbrand"><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;">Legal Authority Lab</div><p>AI workflow systems for attorneys, law firms, and paralegals. A subsidiary of Family Matters Law Group, P.A. · FL Bar No. 64399</p></div>
+      <div class="flinks"><h5>Navigate</h5><a href="index.html">Home</a><a href="fl-family-law.html">FL Family Law</a><a href="cle-workshops.html">CLE &amp; Workshops</a><a href="learn-more.html">Learn More</a></div>
+      <div class="flinks"><h5>Get Started</h5><a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank">Exploration Call</a><a href="https://calendly.com/leisawintz/lal--demo" target="_blank">Private Demo</a><a href="https://calendly.com/leisawintz/working-demo" target="_blank">Working Demo</a></div>
+      <div class="flinks"><h5>Connect</h5><a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank">Email List</a><a href="https://www.facebook.com/share/g/17hGx79vhP/" target="_blank">Boss Lady Esq.</a><a href="learn-more.html">Learn More</a></div>
+    </div>
+    <div class="foot-bot">
+      <p>© 2026 Legal Authority Lab · A subsidiary of Family Matters Law Group, P.A. · FL Bar No. 64399</p>
+      <p><a href="mailto:leisa@legalauthoritylab.com" style="color:#222;">leisa@legalauthoritylab.com</a> · legalauthoritylab.com</p>
+    </div>
+  </div>
+</footer>
+<script>function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open');}</script>
+</body>
+</html>

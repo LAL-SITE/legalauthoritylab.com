@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Legal Authority Lab — AI Built for Law Firms</title>
+<meta name="description" content="AI workflow systems built for attorneys, law firms, and paralegals. Built inside a real Florida family law firm — tested on real cases before it was ever offered to anyone else."/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0A0A0A;color:#F7F5F0;font-family:'Barlow',sans-serif;font-size:15px;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#0A0A0A;}::-webkit-scrollbar-thumb{background:#333;border-radius:2px;}
+.colorbar{height:4px;background:linear-gradient(to right,#FF1F8E 25%,#FF6B00 25% 50%,#C8D400 50% 75%,#00B5B8 75%);position:sticky;top:0;z-index:300;}
+/* NAV */
+nav{background:#0A0A0A;border-bottom:1px solid #1e1e1e;position:sticky;top:4px;z-index:200;}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:54px;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:9px;}
+.logo-mark{width:30px;height:30px;border:1.5px solid #FF1F8E;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
+.logo-mark span{display:block;height:2px;border-radius:1px;}
+.logo-mark span:nth-child(1){width:18px;background:#FF1F8E;}
+.logo-mark span:nth-child(2){width:12px;background:#FF6B00;}
+.logo-mark span:nth-child(3){width:7px;background:#C8D400;}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;line-height:1.1;}
+.logo-text em{display:block;font-style:normal;font-size:8px;font-weight:400;color:#444;letter-spacing:1px;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{font-size:12px;font-weight:500;color:#555;transition:color .15s;}
+.nav-links a:hover,.nav-links a.active{color:#F7F5F0;}
+.nav-cta{background:#FF1F8E!important;color:#000!important;padding:6px 14px;border-radius:2px;font-weight:700!important;font-size:11px!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.hamburger span{display:block;width:20px;height:2px;background:#F7F5F0;border-radius:1px;}
+.mobile-menu{display:none;background:#111;border-bottom:1px solid #1e1e1e;padding:12px 20px 16px;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;font-size:14px;color:#888;padding:10px 0;border-bottom:1px solid #1a1a1a;}
+.mobile-menu a.active,.mobile-menu a:hover{color:#F7F5F0;}
+.mob-cta{background:#FF1F8E;color:#000!important;text-align:center;font-weight:700;border-radius:2px;padding:11px;margin-top:8px;border:none;}
+
+/* HERO */
+.hero{max-width:1140px;margin:0 auto;padding:72px 20px 56px;}
+.hero-pre{font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#FF1F8E;font-weight:700;margin-bottom:16px;}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,9vw,90px);font-weight:900;line-height:0.95;letter-spacing:-1px;margin-bottom:20px;}
+.hero h1 span{color:#FF1F8E;}
+.hero-sub{font-size:15px;color:#888;max-width:560px;line-height:1.75;margin-bottom:32px;}
+.hero-sub strong{color:#F7F5F0;}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:52px;}
+.btn-p{display:inline-block;background:#FF1F8E;color:#000;padding:13px 24px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;}
+.btn-p:hover{opacity:.85;}
+.btn-o{display:inline-block;background:transparent;color:#F7F5F0;padding:12px 24px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;border:1px solid #333;transition:border-color .15s;}
+.btn-o:hover{border-color:#888;}
+.stats{display:flex;gap:8px;flex-wrap:wrap;}
+.stat{background:#161616;border:1px solid #252525;padding:12px 16px;border-radius:2px;min-width:100px;}
+.stat-n{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;line-height:1;}
+.stat-l{font-size:9px;color:#555;margin-top:2px;text-transform:uppercase;letter-spacing:0.5px;}
+
+/* SECTIONS */
+.section{padding:60px 20px;}
+.s-inner{max-width:1140px;margin:0 auto;}
+.sec-label{font-size:9px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #252525;}
+.sec-head{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,5vw,46px);font-weight:900;line-height:1.0;letter-spacing:-0.5px;margin-bottom:12px;}
+.sec-sub{font-size:13px;color:#888;max-width:560px;line-height:1.75;margin-bottom:36px;}
+
+/* WHAT GRID */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#1a1a1a;border:1px solid #1a1a1a;}
+.wcard{background:#0A0A0A;padding:24px;transition:background .15s;}
+.wcard:hover{background:#111;}
+.wcard-icon{font-size:20px;margin-bottom:10px;}
+.wcard h3{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;margin-bottom:6px;}
+.wcard p{font-size:12px;color:#777;line-height:1.65;}
+
+/* OFFERS */
+.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.oc{background:#111;border:1px solid #222;border-radius:3px;padding:22px 20px;transition:border-color .15s;}
+.oc:hover{border-color:#444;}
+.oc.hot{border-color:#FF1F8E;background:#0d0005;}
+.oc-badge{font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#FF1F8E;margin-bottom:10px;}
+.oc h3{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;margin-bottom:8px;}
+.oc p{font-size:12px;color:#777;line-height:1.65;margin-bottom:16px;}
+.oc-link{font-size:11px;font-weight:700;color:#FF1F8E;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px;text-transform:uppercase;}
+.oc-link::after{content:' →';}
+
+/* CRED */
+.cred-row{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.cred-copy h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(26px,4vw,38px);font-weight:900;line-height:1.0;margin-bottom:14px;}
+.cred-copy p{font-size:13px;color:#888;line-height:1.75;margin-bottom:12px;}
+.clist{list-style:none;}
+.clist li{padding:10px 0;border-bottom:1px solid #1e1e1e;font-size:12px;color:#ccc;display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.clist li::before{content:'→';color:#FF1F8E;font-size:10px;margin-top:2px;flex-shrink:0;}
+
+/* CTA CARDS */
+.cta-g{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:36px;}
+.cc{background:#111;border:1px solid #222;border-radius:3px;padding:20px;}
+.cc-type{font-size:8px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:6px;}
+.cc h3{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:800;margin-bottom:6px;}
+.cc p{font-size:12px;color:#777;margin-bottom:12px;line-height:1.55;}
+.cc a.cbtn{display:inline-block;background:#FF1F8E;color:#000;padding:8px 16px;border-radius:2px;font-size:11px;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;}
+.cc a.cbtn:hover{opacity:.85;}
+
+/* FOOTER */
+footer{background:#050505;border-top:1px solid #1a1a1a;padding:44px 20px 24px;}
+.foot-inner{max-width:1140px;margin:0 auto;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:32px;}
+footer h5{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:#2a2a2a;font-weight:700;margin-bottom:12px;}
+footer .flinks a{display:block;font-size:12px;color:#444;margin-bottom:6px;transition:color .15s;}
+footer .flinks a:hover{color:#F7F5F0;}
+.fbrand p{font-size:11px;color:#2a2a2a;margin-top:7px;line-height:1.65;}
+.foot-bot{border-top:1px solid #111;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.foot-bot p{font-size:10px;color:#222;}
+
+/* RESPONSIVE */
+@media(max-width:900px){.offers{grid-template-columns:1fr 1fr;}}
+@media(max-width:720px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .g2{grid-template-columns:1fr;}
+  .offers{grid-template-columns:1fr;}
+  .cred-row{grid-template-columns:1fr;}
+  .cta-g{grid-template-columns:1fr;}
+  .foot-top{grid-template-columns:1fr 1fr;gap:24px;}
+}
+@media(max-width:460px){.foot-top{grid-template-columns:1fr;}.stats{gap:6px;}}
+</style>
+</head>
+<body>
+<div class="colorbar"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><span></span><span></span><span></span></div>
+      <div class="logo-text">Legal Authority Lab<em>AI Built for Law Firms</em></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="fl-family-law.html">FL Family Law</a>
+      <a href="cle-workshops.html">CLE &amp; Workshops</a>
+      <a href="learn-more.html">Learn More</a>
+      <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="nav-cta">Book a Call</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" class="active">Home</a>
+    <a href="fl-family-law.html">FL Family Law</a>
+    <a href="cle-workshops.html">CLE &amp; Workshops</a>
+    <a href="learn-more.html">Learn More</a>
+    <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="mob-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-pre">— Legal Authority Lab</div>
+  <h1>AI BUILT<br>FOR LAW FIRMS.<br><span>POWERED BY<br>REAL LAWYERS.</span></h1>
+  <p class="hero-sub">Not built by technologists who have never set foot in a courtroom. Built inside a real, active Florida family law firm — tested on real cases, real clients, real deadlines <strong>before it was ever offered to anyone else.</strong></p>
+  <div class="hero-actions">
+    <a href="fl-family-law.html" class="btn-p">FL Family Law Systems →</a>
+    <a href="https://calendly.com/leisawintz/lal--demo" target="_blank" class="btn-o">Book a Free Demo</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-n" style="color:#FF1F8E">120</div><div class="stat-l">Attorneys Responded</div></div>
+    <div class="stat"><div class="stat-n" style="color:#FF6B00">70</div><div class="stat-l">Attended Live Demo</div></div>
+    <div class="stat"><div class="stat-n" style="color:#C8D400">67</div><div class="stat-l">Joined Waitlist</div></div>
+    <div class="stat"><div class="stat-n" style="color:#00B5B8">24hrs</div><div class="stat-l">After One Post</div></div>
+  </div>
+</div>
+
+<!-- WHAT IT IS -->
+<section class="section" style="background:#0d0d0d;">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#FF6B00">— What Legal Authority Lab Is</div>
+    <h2 class="sec-head">Not a software company.<br>A practice operating system.</h2>
+    <p class="sec-sub">Every system is pre-loaded with caselaw, statutes, procedural rules, court-approved forms, and real example language. Not because we scraped the internet. Because we practice this law every day.</p>
+    <div class="g2">
+      <div class="wcard"><div class="wcard-icon">⚖️</div><h3>Built by a practicing attorney</h3><p>Leisa Wintz, MS, Esq. — 18 years of Florida family law. Every workflow tested inside a real, active firm on real cases before it was ever offered to anyone else.</p></div>
+      <div class="wcard"><div class="wcard-icon">🔬</div><h3>Tested before it was sold</h3><p>LAL started as an internal firm tool. It ran on actual client files and actual deadlines for 18 months inside Family Matters Law Group before it became a product.</p></div>
+      <div class="wcard"><div class="wcard-icon">🏛️</div><h3>Exclusive to legal professionals</h3><p>LAL serves attorneys, law firms, and paralegals only. Never pro se litigants. Built for professionals who understand what they're running.</p></div>
+      <div class="wcard"><div class="wcard-icon">🔒</div><h3>One-time purchase. No subscriptions.</h3><p>You buy it once. It lives in your Claude Project. No monthly fees, no platform lock-in, no subscription that disappears if you stop paying. Yours.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<section class="section">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#FF1F8E">— What LAL Offers</div>
+    <h2 class="sec-head">Every way to work with us.</h2>
+    <p class="sec-sub">Five lanes. Standalone systems, coaching, custom builds, workshops, and niche masterminds. All built on 18 years of live practice.</p>
+    <div class="offers">
+      <div class="oc hot">
+        <div class="oc-badge">Flagship</div>
+        <h3>FL Family Law Systems</h3>
+        <p>Complete AI workflow suites for Florida family law — financial discovery, drafting, mediation, GAL, contempt, and more. One-time purchase. Self-install.</p>
+        <a href="fl-family-law.html" class="oc-link">View all systems</a>
+      </div>
+      <div class="oc">
+        <div class="oc-badge" style="color:#FF6B00">High-Touch</div>
+        <h3>Coaching &amp; Implementation</h3>
+        <p>$5,000 retainer. LAL installs every system you've purchased, builds your Command Center, then trains and customizes with you through sessions — your pace, your workflow.</p>
+        <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="oc-link" style="color:#FF6B00">Book a strategy call</a>
+      </div>
+      <div class="oc">
+        <div class="oc-badge" style="color:#00B5B8">Any Firm · Any State</div>
+        <h3>Custom Builds</h3>
+        <p>Not in Florida family law? We build for any practice area, any state. Scoped per engagement after a strategy call.</p>
+        <a href="https://calendly.com/leisawintz/lal-custom-ai-strategy" target="_blank" class="oc-link" style="color:#00B5B8">Book a custom strategy call</a>
+      </div>
+      <div class="oc">
+        <div class="oc-badge" style="color:#C8D400">CLE Credit Available</div>
+        <h3>Workshops &amp; Training</h3>
+        <p>AI Basics for Attorneys. FL Family Law AI. Ethics CLE. Live workshops built for legal professionals — not a vendor pitch.</p>
+        <a href="cle-workshops.html" class="oc-link" style="color:#C8D400">See upcoming workshops</a>
+      </div>
+      <div class="oc">
+        <div class="oc-badge" style="color:#FF6B00">Small Group · Deep Dive</div>
+        <h3>Niche Masterminds</h3>
+        <p>6–8 weeks. 2 hours per week. Small group. First vertical: estate planning. For attorneys who want to go deep on AI for their practice area.</p>
+        <a href="https://lp.constantcontactpages.com/sl/3526Fvo/legalauthoritylab" target="_blank" class="oc-link" style="color:#FF6B00">Join the waitlist</a>
+      </div>
+      <div class="oc">
+        <div class="oc-badge" style="color:#00B5B8">Stay Current</div>
+        <h3>Membership</h3>
+        <p>Annual patches and updates. Monthly live webinar. Two group sessions per year. Member consulting rate. First access to every new release.</p>
+        <a href="fl-family-law.html#coaching" class="oc-link" style="color:#00B5B8">Learn about membership</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRED -->
+<section class="section" style="background:#0d0d0d;">
+  <div class="s-inner">
+    <div class="cred-row">
+      <div class="cred-copy">
+        <div class="sec-label" style="color:#C8D400">— The Difference</div>
+        <h2>18 years of case files turned into workflow architecture.</h2>
+        <p>Most legal AI is built by people who have never filed a motion. They build something that sounds right — uses legal vocabulary, references statutes — and then an attorney tries to use it on a real case and it falls apart.</p>
+        <p>LAL is different because it was built by someone who has practiced family law in Florida for 18 years. Every bot comes pre-loaded with actual caselaw, actual statutes, actual procedural rules, and actual example language from real filings.</p>
+      </div>
+      <ul class="clist">
+        <li>Built from actual FMLG case files — pleadings, FAs, discovery productions, mediation agreements, final judgments</li>
+        <li>Anonymized, structured, and converted into workflow logic — not templates</li>
+        <li>Tested inside a live firm before ever being offered to another attorney</li>
+        <li>Every stage feeds context forward — nothing starts cold</li>
+        <li>QC gates at every stage — no output advances without clearance</li>
+        <li>Florida Supreme Court form compliance built into every draft</li>
+        <li>Ethics bot included with every system — no add-on, no exceptions</li>
+        <li>Role-stratified lanes — the system enforces who does what</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GET STARTED -->
+<section class="section">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#00B5B8">— Get Started</div>
+    <h2 class="sec-head">Ready to run your firm like a system?</h2>
+    <p class="sec-sub">Four ways in. Free to paid. Map it out, see it live, or go straight to a build conversation.</p>
+    <div class="cta-g">
+      <div class="cc"><div class="cc-type" style="color:#00B5B8">Free · 30 min</div><h3>Exploration Call</h3><p>Map out what makes sense for your firm. No pitch. Just a real conversation about where AI fits in your workflow.</p><a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="cbtn">Book the call</a></div>
+      <div class="cc"><div class="cc-type" style="color:#00B5B8">Free · 30–45 min</div><h3>Private Demo</h3><p>Bring a real client file. See the system run live on your actual workflow. Not a slide deck. Not a recording.</p><a href="https://calendly.com/leisawintz/lal--demo" target="_blank" class="cbtn">Book a demo</a></div>
+      <div class="cc"><div class="cc-type" style="color:#FF6B00">$399</div><h3>Working Demo</h3><p>Run a system on your own real client file with Leisa walking you through it. Applied to any purchase.</p><a href="https://calendly.com/leisawintz/working-demo" target="_blank" class="cbtn">Book a working demo</a></div>
+      <div class="cc"><div class="cc-type" style="color:#FF6B00">Paid · Applied to Build</div><h3>Custom Build Strategy</h3><p>2 hours. Scoped per firm. Any state, any practice area. Fully custom bot architecture built to your workflow.</p><a href="https://calendly.com/leisawintz/lal-custom-ai-strategy" target="_blank" class="cbtn">Book a strategy call</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="fbrand">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;">Legal Authority Lab</div>
+        <p>AI workflow systems for attorneys, law firms, and paralegals. A subsidiary of Family Matters Law Group, P.A. · FL Bar No. 64399</p>
+      </div>
+      <div class="flinks"><h5>Navigate</h5><a href="index.html">Home</a><a href="fl-family-law.html">FL Family Law</a><a href="cle-workshops.html">CLE &amp; Workshops</a><a href="learn-more.html">Learn More</a></div>
+      <div class="flinks"><h5>Get Started</h5><a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank">Exploration Call</a><a href="https://calendly.com/leisawintz/lal--demo" target="_blank">Private Demo</a><a href="https://calendly.com/leisawintz/working-demo" target="_blank">Working Demo</a><a href="https://calendly.com/leisawintz/lal-custom-ai-strategy" target="_blank">Custom Build</a></div>
+      <div class="flinks"><h5>Connect</h5><a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank">Email List</a><a href="https://www.facebook.com/share/g/17hGx79vhP/" target="_blank">Boss Lady Esq.</a><a href="learn-more.html">Blog &amp; YouTube</a></div>
+    </div>
+    <div class="foot-bot">
+      <p>© 2026 Legal Authority Lab · A subsidiary of Family Matters Law Group, P.A. · FL Bar No. 64399</p>
+      <p><a href="mailto:leisa@legalauthoritylab.com" style="color:#333;">leisa@legalauthoritylab.com</a> · legalauthoritylab.com</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+</script>
+</body>
+</html>
