@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About LAL — The Founders & Team</title>
+<meta name="description" content="Meet the team behind Legal Authority Lab. Three equal co-founders building AI systems from 18+ years of real legal practice."/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0A0A0A;color:#F7F5F0;font-family:'Barlow',sans-serif;font-size:15px;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#0A0A0A;}::-webkit-scrollbar-thumb{background:#333;border-radius:2px;}
+.colorbar{height:4px;background:linear-gradient(to right,#FF1F8E 25%,#FF6B00 25% 50%,#C8D400 50% 75%,#00B5B8 75%);position:sticky;top:0;z-index:300;}
+
+/* NAV */
+nav{background:#0A0A0A;border-bottom:1px solid #1e1e1e;position:sticky;top:4px;z-index:200;}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:54px;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:9px;}
+.logo-mark{width:30px;height:30px;border:1.5px solid #FF1F8E;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
+.logo-mark span{display:block;height:2px;border-radius:1px;}
+.logo-mark span:nth-child(1){width:18px;background:#FF1F8E;}
+.logo-mark span:nth-child(2){width:12px;background:#FF6B00;}
+.logo-mark span:nth-child(3){width:7px;background:#C8D400;}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;line-height:1.1;}
+.logo-text em{display:block;font-style:normal;font-size:8px;font-weight:400;color:#444;letter-spacing:1px;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{font-size:12px;font-weight:500;color:#555;transition:color .15s;}
+.nav-links a:hover,.nav-links a.active{color:#F7F5F0;}
+.nav-cta{background:#FF1F8E!important;color:#000!important;padding:6px 14px;border-radius:2px;font-weight:700!important;font-size:11px!important;}
+
+/* PAGE HEADER */
+.page-hdr{background:#0d0d0d;border-bottom:1px solid #1a1a1a;padding:56px 20px 44px;}
+.ph-inner{max-width:1140px;margin:0 auto;}
+.pre{font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#FF1F8E;font-weight:700;margin-bottom:12px;}
+.page-hdr h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,7vw,64px);font-weight:900;line-height:0.95;letter-spacing:-1px;margin-bottom:14px;}
+.page-hdr p{font-size:14px;color:#888;max-width:660px;line-height:1.75;}
+
+/* SECTIONS */
+.section{padding:56px 20px;}
+.s-inner{max-width:1140px;margin:0 auto;}
+.sec-label{font-size:9px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #252525;}
+.sec-head{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,5vw,46px);font-weight:900;line-height:1.0;letter-spacing:-0.5px;margin-bottom:24px;}
+.sec-sub{font-size:13px;color:#888;max-width:560px;line-height:1.75;margin-bottom:32px;}
+
+/* FOUNDER GRID */
+.founder-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px;}
+.founder-card{background:#111;border:1px solid #252525;border-radius:3px;overflow:hidden;transition:border-color .15s;}
+.founder-card:hover{border-color:#444;}
+.founder-photo{width:100%;aspect-ratio:3/4;background:#161616;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.founder-photo img{width:100%;height:100%;object-fit:cover;}
+.founder-info{padding:20px;}
+.founder-info h3{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;margin-bottom:2px;}
+.founder-role{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;color:#FF6B00;margin-bottom:12px;}
+.founder-bio{font-size:11px;color:#888;line-height:1.65;}
+
+/* TEAM GRID */
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;}
+.team-member{background:#111;border:1px solid #252525;border-radius:3px;padding:24px;display:flex;gap:16px;}
+.team-member.span-full{grid-column:1/-1;}
+.tm-avatar{width:60px;height:60px;background:linear-gradient(135deg,#FF1F8E,#FF6B00);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
+.tm-info h4{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;margin-bottom:2px;}
+.tm-role{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:#00B5B8;font-weight:700;margin-bottom:6px;}
+.tm-bio{font-size:11px;color:#777;line-height:1.6;}
+
+/* MISSION */
+.mission-section{background:#0d0d0d;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;}
+.mission-content{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.mission-text h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:16px;}
+.mission-text p{font-size:13px;color:#888;line-height:1.8;margin-bottom:12px;}
+.mission-quote{background:#111;border-left:3px solid #FF1F8E;padding:20px;border-radius:2px;font-size:13px;color:#ccc;line-height:1.75;font-style:italic;}
+
+/* FOOTER */
+footer{background:#050505;border-top:1px solid #1a1a1a;padding:44px 20px 24px;}
+.foot-inner{max-width:1140px;margin:0 auto;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px;padding-bottom:28px;border-bottom:1px solid #1a1a1a;margin-bottom:20px;}
+.fbrand p{font-size:11px;color:#555;line-height:1.65;margin-top:4px;}
+.flinks h5{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;color:#F7F5F0;}
+.flinks a{display:block;font-size:11px;color:#555;margin-bottom:6px;transition:color .15s;}
+.flinks a:hover{color:#F7F5F0;}
+.foot-bot{display:flex;justify-content:space-between;gap:20px;font-size:10px;color:#444;flex-wrap:wrap;}
+
+@media(max-width:768px){
+.founder-grid{grid-template-columns:1fr;}
+.mission-content{grid-template-columns:1fr;}
+.team-grid{grid-template-columns:1fr;}
+.foot-top{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="colorbar"></div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><div class="logo-mark"><span></span><span></span><span></span></div><div class="logo-text">Legal Authority Lab<em>AI for law firms</em></div></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="fl-family-law.html">Products</a>
+      <a href="about.html" class="active">About</a>
+      <a href="cle-workshops.html">Workshops</a>
+      <a href="https://calendly.com/leisawintz/legal-authority-lab" class="nav-cta">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <div class="ph-inner">
+    <div class="pre">— Who We Are</div>
+    <h1>Three equal co-founders.<br>18+ years of real practice.</h1>
+    <p>Legal Authority Lab was built by attorneys who practice law. Every system is tested on real cases, real clients, and real deadlines. We're not a tech company trying to understand law. We're lawyers who know how to build.</p>
+  </div>
+</div>
+
+<!-- FOUNDERS -->
+<section class="section">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#FF1F8E">— The Founders</div>
+    <h2 class="sec-head">Reunited to build what's next.</h2>
+    <p class="sec-sub">Leisa, Nazarena, and Cheryl-Dene have been building together since law school. They're bringing 18+ years of active legal practice to LAL.</p>
+    
+    <div class="founder-grid">
+      <!-- LEISA -->
+      <div class="founder-card">
+        <div class="founder-photo"><img src="_DSC8596.jpg" alt="Leisa Wintz"/></div>
+        <div class="founder-info">
+          <h3>Leisa Wintz</h3>
+          <div class="founder-role">Cofounder · Chief Product & Strategy</div>
+          <p class="founder-bio">MS, Esq. (FL Bar No. 64399). 18 years practicing Florida family law. Founder of Family Matters Law Group, P.A., the proof of concept behind every LAL system. Leisa personally tests every workflow on real clients before it ships.</p>
+        </div>
+      </div>
+
+      <!-- NAZARENA -->
+      <div class="founder-card">
+        <div class="founder-photo"><img src="_DSC0025_2X.jpg" alt="Nazarena Hauser"/></div>
+        <div class="founder-info">
+          <h3>Nazarena Hauser</h3>
+          <div class="founder-role">Cofounder · Operations & Partnership</div>
+          <p class="founder-bio">Esq. Co-founder of LAL and long-time operations lead at Family Matters Law Group. Naz manages client relationships, implementation, and team coordination. She's the operational backbone keeping LAL running at scale.</p>
+        </div>
+      </div>
+
+      <!-- CHERYL-DENE -->
+      <div class="founder-card">
+        <div class="founder-photo"><img src="1.png" alt="Cheryl-Dene Spring"/></div>
+        <div class="founder-info">
+          <h3>Cheryl-Dene Spring</h3>
+          <div class="founder-role">Cofounder · Chief Financial Officer</div>
+          <p class="founder-bio">Esq. 15+ years as attorney, real estate broker, and paralegal. Founder of Sobi Law Group, Sobi Title & Escrow. Known for Super Lawyers Rising Star (2017–2020). Leads LAL's financial strategy and infrastructure.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section mission-section">
+  <div class="s-inner">
+    <div class="mission-content">
+      <div class="mission-text">
+        <div class="sec-label" style="color:#C8D400">— Why We're Doing This</div>
+        <h2>Solo and small firm attorneys need better tools.</h2>
+        <p>For years, the legal tech market served enterprise. The result: solo attorneys and small firms got left behind. They either paid enterprise prices or made do with broken software. LAL exists to change that.</p>
+        <p>We're building systems that work because we know what solo attorneys need. We've lived it. Every bot is built inside a real firm on real cases. When it works for us, we release it.</p>
+      </div>
+      <div>
+        <div class="mission-quote">"We're not a tech company trying to understand law. We're lawyers who know how to build. Every system has been tested on actual client files and real deadlines before it was ever offered to anyone else."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#00B5B8">— The Team</div>
+    <h2 class="sec-head">Lean. Focused. Real.</h2>
+    <p class="sec-sub">LAL's team is small by design. Everyone here does real work on real products. No layers. No bureaucracy.</p>
+    
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="tm-avatar">🛠️</div>
+        <div class="tm-info">
+          <h4>Henry</h4>
+          <div class="tm-role">Lead Engineer · Infrastructure</div>
+          <p class="tm-bio">Licensed engineer building platform infrastructure, Command Center portal, and technical architecture. Henry handles all backend systems, integrations, and the infrastructure layer that lets LAL scale.</p>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="tm-avatar">📢</div>
+        <div class="tm-info">
+          <h4>Candice D'Angelo</h4>
+          <div class="tm-role">PR & Communications · The Agency East</div>
+          <p class="tm-bio">Handling all media, press, speaker bookings, and public-facing communications. Candice is connecting LAL with the attorney community and positioning Leisa as the national AI authority for legal practice.</p>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="tm-avatar">📋</div>
+        <div class="tm-info">
+          <h4>FMLG Operations Team</h4>
+          <div class="tm-role">Paralegal & Support · Family Matters Law Group</div>
+          <p class="tm-bio">Karen, Sara, and Jeri provide client support, implementation, and operational excellence. They handle everything from intake to delivery, ensuring every LAL system lands perfectly with clients.</p>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="tm-avatar">💼</div>
+        <div class="tm-info">
+          <h4>Master Valuator Partners</h4>
+          <div class="tm-role">Real Estate & Valuation · Cheryl-Dene Spring & Henry</div>
+          <p class="tm-bio">Building real estate CMAs, business valuations, and QDRO calculations. Cheryl-Dene and Henry lead the Master Valuator initiative launching Sep–Oct 2026 as a complement to LAL's core offerings.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="fbrand"><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;">Legal Authority Lab</div><p>AI workflow systems for attorneys, law firms, and paralegals. Independent company. Founded April 28, 2026.</p></div>
+      <div class="flinks"><h5>Navigate</h5><a href="index.html">Home</a><a href="fl-family-law.html">Products</a><a href="about.html">About</a><a href="cle-workshops.html">Workshops</a></div>
+      <div class="flinks"><h5>Get Started</h5><a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank">Exploration Call</a><a href="https://calendly.com/leisawintz/lal--demo" target="_blank">Private Demo</a><a href="https://calendly.com/leisawintz/working-demo" target="_blank">Working Demo</a></div>
+      <div class="flinks"><h5>Connect</h5><a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank">Email List</a><a href="https://www.facebook.com/share/g/17hGx79vhP/" target="_blank">Lawyers + AI</a><a href="learn-more.html">Learn More</a></div>
+    </div>
+    <div class="foot-bot">
+      <p>© 2026 Legal Authority Lab · Independent company · Three equal co-founders: Leisa Wintz · Nazarena Hauser · Cheryl-Dene Spring</p>
+      <p><a href="mailto:leisa@legalauthoritylab.com" style="color:#333;">leisa@legalauthoritylab.com</a> · legalauthoritylab.com</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
