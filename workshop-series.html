@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LAL Workshop Series — Monthly CLE Training</title>
+<meta name="description" content="Legal Authority Lab Workshop Series. Monthly 1-hour live CLEs on AI, family law strategy, and law firm operations. First Friday of every month, noon ET. $799/attorney."/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0A0A0A;color:#F7F5F0;font-family:'Barlow',sans-serif;font-size:15px;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#0A0A0A;}::-webkit-scrollbar-thumb{background:#333;border-radius:2px;}
+.colorbar{height:4px;background:linear-gradient(to right,#FF1F8E 25%,#FF6B00 25% 50%,#C8D400 50% 75%,#00B5B8 75%);position:sticky;top:0;z-index:300;}
+
+/* NAV */
+nav{background:#0A0A0A;border-bottom:1px solid #1e1e1e;position:sticky;top:4px;z-index:200;}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:54px;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:9px;}
+.logo-mark{width:30px;height:30px;border:1.5px solid #FF1F8E;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
+.logo-mark span{display:block;height:2px;border-radius:1px;}
+.logo-mark span:nth-child(1){width:18px;background:#FF1F8E;}
+.logo-mark span:nth-child(2){width:12px;background:#FF6B00;}
+.logo-mark span:nth-child(3){width:7px;background:#C8D400;}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;line-height:1.1;}
+.logo-text em{display:block;font-style:normal;font-size:8px;font-weight:400;color:#444;letter-spacing:1px;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{font-size:12px;font-weight:500;color:#555;transition:color .15s;}
+.nav-links a:hover,.nav-links a.active{color:#F7F5F0;}
+.nav-cta{background:#FF1F8E!important;color:#000!important;padding:6px 14px;border-radius:2px;font-weight:700!important;font-size:11px!important;}
+
+/* PAGE HEADER */
+.page-hdr{background:#0d0d0d;border-bottom:1px solid #1a1a1a;padding:56px 20px 44px;}
+.ph-inner{max-width:1140px;margin:0 auto;}
+.pre{font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#FF6B00;font-weight:700;margin-bottom:12px;}
+.page-hdr h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,7vw,56px);font-weight:900;line-height:0.95;letter-spacing:-1px;margin-bottom:14px;}
+.page-hdr p{font-size:14px;color:#888;max-width:660px;line-height:1.75;}
+
+/* SECTIONS */
+.section{padding:56px 20px;}
+.s-inner{max-width:1140px;margin:0 auto;}
+.sec-label{font-size:9px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #252525;}
+.sec-head{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,5vw,46px);font-weight:900;line-height:1.0;letter-spacing:-0.5px;margin-bottom:24px;}
+.sec-sub{font-size:13px;color:#888;max-width:560px;line-height:1.75;margin-bottom:36px;}
+
+/* SCHEDULE GRID */
+.schedule-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:48px;}
+.schedule-card{background:#111;border:1px solid #252525;border-radius:3px;padding:20px;text-align:center;}
+.schedule-card.future{opacity:0.6;}
+.month{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;color:#FF6B00;margin-bottom:6px;text-transform:uppercase;}
+.date{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;margin-bottom:4px;}
+.time{font-size:11px;color:#888;}
+.topic{font-size:11px;color:#666;margin-top:8px;font-weight:600;}
+
+/* PRICING */
+.pricing-box{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:3px;padding:32px;text-align:center;max-width:500px;margin:0 auto 48px;}
+.price-big{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:900;color:#FF6B00;margin-bottom:8px;}
+.price-sub{font-size:12px;color:#888;margin-bottom:20px;}
+.price-features{text-align:left;font-size:12px;color:#888;line-height:1.75;margin-bottom:20px;}
+.price-features li{list-style:none;margin-bottom:8px;padding-left:16px;position:relative;}
+.price-features li::before{content:'✓';position:absolute;left:0;color:#C8D400;font-weight:700;}
+.btn-register{display:inline-block;background:#FF1F8E;color:#000;padding:13px 28px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;}
+.btn-register:hover{opacity:.85;}
+
+/* CTA */
+.cta-section{background:#0d0d0d;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;padding:56px 20px;text-align:center;}
+.cta-inner{max-width:800px;margin:0 auto;}
+.cta-inner h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:16px;}
+.cta-inner p{font-size:13px;color:#888;line-height:1.8;margin-bottom:24px;}
+
+/* FOOTER */
+footer{background:#050505;border-top:1px solid #1a1a1a;padding:44px 20px 24px;}
+.foot-inner{max-width:1140px;margin:0 auto;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px;padding-bottom:28px;border-bottom:1px solid #1a1a1a;margin-bottom:20px;}
+.fbrand p{font-size:11px;color:#555;line-height:1.65;margin-top:4px;}
+.flinks h5{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;color:#F7F5F0;}
+.flinks a{display:block;font-size:11px;color:#555;margin-bottom:6px;transition:color .15s;}
+.flinks a:hover{color:#F7F5F0;}
+.foot-bot{display:flex;justify-content:space-between;gap:20px;font-size:10px;color:#444;flex-wrap:wrap;}
+
+@media(max-width:768px){
+.schedule-grid{grid-template-columns:1fr;}
+.foot-top{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="colorbar"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><span></span><span></span><span></span></div>
+      <div class="logo-text">Legal Authority Lab<em>AI Built for Law Firms</em></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="fl-family-law.html">Products</a>
+      <a href="master-valuator.html">Master Valuator</a>
+      <a href="about.html">About</a>
+      <a href="cle-workshops.html" class="active">Workshops</a>
+      <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="nav-cta">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <div class="ph-inner">
+    <div class="pre">— Live CLE Series</div>
+    <h1>Monthly Workshop Series. First Friday. Noon ET.</h1>
+    <p>One-hour live CLEs on AI in family law, discovery strategy, mediation prep, and law firm operations. Taught by Leisa Wintz. Recorded for later viewing. $799/attorney per year or $99/workshop drop-in.</p>
+  </div>
+</div>
+
+<!-- 2026 SCHEDULE -->
+<section class="section" style="background:#0d0d0d;">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#C8D400">— 2026 Schedule</div>
+    <h2 class="sec-head">Every first Friday, noon ET.</h2>
+    
+    <div class="schedule-grid">
+      <div class="schedule-card">
+        <div class="month">July</div>
+        <div class="date">7/10</div>
+        <div class="time">12:00 PM ET</div>
+        <div class="topic">Are you AI Ready?</div>
+      </div>
+
+      <div class="schedule-card">
+        <div class="month">August</div>
+        <div class="date">8/1</div>
+        <div class="time">12:00 PM ET</div>
+        <div class="topic">Discovery Automation: Compression & Control</div>
+      </div>
+
+      <div class="schedule-card">
+        <div class="month">September</div>
+        <div class="date">9/5</div>
+        <div class="time">12:00 PM ET</div>
+        <div class="topic">Financial Affidavit Audits: The Winning Questions</div>
+      </div>
+
+      <div class="schedule-card">
+        <div class="month">October</div>
+        <div class="date">10/3</div>
+        <div class="time">12:00 PM ET</div>
+        <div class="topic">(TBD)</div>
+      </div>
+
+      <div class="schedule-card future">
+        <div class="month">November</div>
+        <div class="date">11/7</div>
+        <div class="time">12:00 PM ET</div>
+        <div class="topic">Mediation Prep: The ED Chart That Wins Settlements</div>
+      </div>
+
+      <div class="schedule-card future">
+        <div class="month">December</div>
+        <div class="date">12/5</div>
+        <div class="time">12:00 PM ET</div>
+        <div class="topic">Year-End Case Closing Checklist</div>
+      </div>
+
+      <div class="schedule-card future">
+        <div class="month">January</div>
+        <div class="date">1/9</div>
+        <div class="time">12:00 PM ET</div>
+        <div class="topic">Systems Over Headcount: Firm Operations</div>
+      </div>
+
+      <div class="schedule-card future">
+        <div class="month">February</div>
+        <div class="date">2/6</div>
+        <div class="time">12:00 PM ET</div>
+        <div class="topic">Contempt Enforcement: Motion to Prevail</div>
+      </div>
+
+      <div class="schedule-card future">
+        <div class="month">March</div>
+        <div class="date">3/6</div>
+        <div class="time">12:00 PM ET</div>
+        <div class="topic">(TBD)</div>
+      </div>
+
+      <div class="schedule-card future">
+        <div class="month">April</div>
+        <div class="date">4/3</div>
+        <div class="time">12:00 PM ET</div>
+        <div class="topic">GAL Investigations: Building Your Case</div>
+      </div>
+
+      <div class="schedule-card future">
+        <div class="month">May</div>
+        <div class="date">5/1</div>
+        <div class="time">12:00 PM ET</div>
+        <div class="topic">Alimony Strategy & Calculation Under § 61.08</div>
+      </div>
+
+      <div class="schedule-card future">
+        <div class="month">June</div>
+        <div class="date">6/5</div>
+        <div class="time">12:00 PM ET</div>
+        <div class="topic">(TBD)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING & REGISTRATION -->
+<section class="section">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#FF6B00">— Pricing & Registration</div>
+    <h2 class="sec-head">Two ways to attend.</h2>
+    
+    <div class="pricing-box">
+      <div class="price-big">$799</div>
+      <div class="price-sub">Annual Workshop Series (Jul 2026–Jun 2027)</div>
+      <ul class="price-features">
+        <li>All 12 workshops live (noon ET, 1 hour each)</li>
+        <li>Recordings available 24 hours after each workshop</li>
+        <li>CLE credit (1 hour per workshop)</li>
+        <li>Exclusive Slack community access</li>
+        <li>PDF slides + transcripts after each session</li>
+      </ul>
+      <a href="https://buy.stripe.com/7sYaEYexKbhV5hK7h24ZG05" target="_blank" class="btn-register">Register for Series</a>
+    </div>
+
+    <p style="text-align:center;font-size:13px;color:#888;margin-bottom:32px;"><strong style="color:#F7F5F0;">OR</strong></p>
+
+    <div class="pricing-box" style="max-width:500px;margin:0 auto;border:1.5px solid #252525;">
+      <div class="price-big" style="font-size:36px;color:#FF1F8E;">$99</div>
+      <div class="price-sub">Drop-In Single Workshop</div>
+      <ul class="price-features">
+        <li>Register for any single workshop</li>
+        <li>Live access (noon ET)</li>
+        <li>CLE credit (1 hour)</li>
+        <li>Recording + slides after session</li>
+        <li>No commitment, cancel anytime</li>
+      </ul>
+      <a href="https://buy.stripe.com/5kQ28s4Xa3PtfWo9pa4ZG03" target="_blank" class="btn-register">Drop In</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ATTEND -->
+<section class="section" style="background:#0d0d0d;">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#00B5B8">— Why Attend</div>
+    <h2 class="sec-head">Practical. Tested. No fluff.</h2>
+    <p class="sec-sub">Every workshop is taught by Leisa Wintz, who runs Family Matters Law Group (active family law firm). All topics are tested on real cases, real deadlines. You get workflow strategies that actually work in solo practice.</p>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px;">
+      <div style="background:#111;border:1px solid #252525;border-radius:3px;padding:24px;">
+        <div style="font-size:32px;margin-bottom:12px;">🎯</div>
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;margin-bottom:8px;">Real-World Cases</h3>
+        <p style="font-size:12px;color:#888;line-height:1.65;">Examples from FMLG's actual cases, redacted. You see what works and what doesn't in live practice.</p>
+      </div>
+
+      <div style="background:#111;border:1px solid #252525;border-radius:3px;padding:24px;">
+        <div style="font-size:32px;margin-bottom:12px;">🔧</div>
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;margin-bottom:8px;">Workflow Tools</h3>
+        <p style="font-size:12px;color:#888;line-height:1.65;">Checklists, templates, and systems you can use immediately. Not theory. Stuff you can copy.</p>
+      </div>
+
+      <div style="background:#111;border:1px solid #252525;border-radius:3px;padding:24px;">
+        <div style="font-size:32px;margin-bottom:12px;">⏱️</div>
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;margin-bottom:8px;">Lunch-Hour Format</h3>
+        <p style="font-size:12px;color:#888;line-height:1.65;">60 minutes. Noon ET. Tight agenda. No endless slides. Perfect for solo practitioners.</p>
+      </div>
+
+      <div style="background:#111;border:1px solid #252525;border-radius:3px;padding:24px;">
+        <div style="font-size:32px;margin-bottom:12px;">🎬</div>
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;margin-bottom:8px;">Recorded Always</h3>
+        <p style="font-size:12px;color:#888;line-height:1.65;">Live is preferred, but recordings available 24 hours later. Full community access for annual members.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Ready to level up?</h2>
+    <p>First workshop is July 10, 2026. Are you AI Ready? Sign up now for the full series or drop in for a single workshop.</p>
+    <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="btn-register" style="font-size:13px;padding:13px 28px;">Register Now</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="fbrand"><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;">LAL Workshop Series</div><p>Monthly 1-hour CLEs taught by practicing attorneys. Real workflows, real cases, real tools.</p></div>
+      <div class="flinks"><h5>Navigate</h5><a href="index.html">LAL Home</a><a href="fl-family-law.html">Products</a><a href="about.html">About</a></div>
+      <div class="flinks"><h5>Explore</h5><a href="master-valuator.html">Master Valuator</a><a href="pay-per-use-ai.html">Pay Per Use AI</a><a href="coaching.html">Coaching</a></div>
+      <div class="flinks"><h5>Connect</h5><a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank">Register</a><a href="https://www.facebook.com/share/g/17hGx79vhP/" target="_blank">Community</a><a href="mailto:leisa@legalauthoritylab.com">Email</a></div>
+    </div>
+    <div class="foot-bot">
+      <p>© 2026 Legal Authority Lab · Independent company</p>
+      <p><a href="mailto:leisa@legalauthoritylab.com">leisa@legalauthoritylab.com</a> · legalauthoritylab.com</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
