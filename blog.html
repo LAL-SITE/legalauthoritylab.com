@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LAL Resources — Blog Articles & Guides</title>
+<meta name="description" content="Legal Authority Lab blog. Articles on AI in legal practice, workflow automation, discovery, family law strategy, and attorney tools."/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0A0A0A;color:#F7F5F0;font-family:'Barlow',sans-serif;font-size:15px;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#0A0A0A;}::-webkit-scrollbar-thumb{background:#333;border-radius:2px;}
+.colorbar{height:4px;background:linear-gradient(to right,#FF1F8E 25%,#FF6B00 25% 50%,#C8D400 50% 75%,#00B5B8 75%);position:sticky;top:0;z-index:300;}
+
+/* NAV */
+nav{background:#0A0A0A;border-bottom:1px solid #1e1e1e;position:sticky;top:4px;z-index:200;}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:54px;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:9px;}
+.logo-mark{width:30px;height:30px;border:1.5px solid #FF1F8E;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
+.logo-mark span{display:block;height:2px;border-radius:1px;}
+.logo-mark span:nth-child(1){width:18px;background:#FF1F8E;}
+.logo-mark span:nth-child(2){width:12px;background:#FF6B00;}
+.logo-mark span:nth-child(3){width:7px;background:#C8D400;}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;line-height:1.1;}
+.logo-text em{display:block;font-style:normal;font-size:8px;font-weight:400;color:#444;letter-spacing:1px;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{font-size:12px;font-weight:500;color:#555;transition:color .15s;}
+.nav-links a:hover,.nav-links a.active{color:#F7F5F0;}
+.nav-cta{background:#FF1F8E!important;color:#000!important;padding:6px 14px;border-radius:2px;font-weight:700!important;font-size:11px!important;}
+
+/* PAGE HEADER */
+.page-hdr{background:#0d0d0d;border-bottom:1px solid #1a1a1a;padding:56px 20px 44px;}
+.ph-inner{max-width:1140px;margin:0 auto;}
+.pre{font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#FF6B00;font-weight:700;margin-bottom:12px;}
+.page-hdr h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,7vw,56px);font-weight:900;line-height:0.95;letter-spacing:-1px;margin-bottom:14px;}
+.page-hdr p{font-size:14px;color:#888;max-width:660px;line-height:1.75;}
+
+/* SECTIONS */
+.section{padding:56px 20px;}
+.s-inner{max-width:1140px;margin:0 auto;}
+
+/* ARTICLE GRID */
+.article-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:48px;}
+.article-card{background:#111;border:1px solid #252525;border-radius:3px;overflow:hidden;transition:border-color .15s;}
+.article-card:hover{border-color:#444;}
+.article-thumb{height:180px;background:linear-gradient(135deg,#FF1F8E 0%,#FF6B00 50%,#C8D400 100%);display:flex;align-items:center;justify-content:center;font-size:48px;opacity:0.8;}
+.article-content{padding:20px;}
+.article-meta{font-size:10px;color:#666;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;}
+.article-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;margin-bottom:8px;color:#F7F5F0;line-height:1.2;}
+.article-excerpt{font-size:12px;color:#888;line-height:1.65;margin-bottom:14px;}
+.article-link{display:inline-block;font-size:11px;font-weight:700;color:#FF6B00;text-transform:uppercase;letter-spacing:0.5px;transition:color .15s;}
+.article-link:hover{color:#FF1F8E;}
+
+/* SIDEBAR */
+.section-with-sidebar{display:grid;grid-template-columns:2fr 1fr;gap:32px;}
+.sidebar{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:3px;padding:24px;height:fit-content;}
+.sidebar h3{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;margin-bottom:16px;color:#F7F5F0;}
+.sidebar-section{margin-bottom:20px;}
+.sidebar-section:last-child{margin-bottom:0;}
+.sidebar-link{display:block;font-size:12px;color:#888;margin-bottom:8px;transition:color .15s;}
+.sidebar-link:hover{color:#F7F5F0;}
+.sidebar-label{font-size:9px;text-transform:uppercase;letter-spacing:2px;color:#666;margin-bottom:8px;font-weight:700;}
+
+/* CTA */
+.cta-section{background:#0d0d0d;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;padding:56px 20px;text-align:center;}
+.cta-inner{max-width:800px;margin:0 auto;}
+.cta-inner h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:16px;}
+.cta-inner p{font-size:13px;color:#888;line-height:1.8;margin-bottom:24px;}
+.btn-cta{display:inline-block;background:#FF1F8E;color:#000;padding:13px 28px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;}
+.btn-cta:hover{opacity:.85;}
+
+/* FOOTER */
+footer{background:#050505;border-top:1px solid #1a1a1a;padding:44px 20px 24px;}
+.foot-inner{max-width:1140px;margin:0 auto;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px;padding-bottom:28px;border-bottom:1px solid #1a1a1a;margin-bottom:20px;}
+.fbrand p{font-size:11px;color:#555;line-height:1.65;margin-top:4px;}
+.flinks h5{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;color:#F7F5F0;}
+.flinks a{display:block;font-size:11px;color:#555;margin-bottom:6px;transition:color .15s;}
+.flinks a:hover{color:#F7F5F0;}
+.foot-bot{display:flex;justify-content:space-between;gap:20px;font-size:10px;color:#444;flex-wrap:wrap;}
+
+@media(max-width:768px){
+.article-grid{grid-template-columns:1fr;}
+.section-with-sidebar{grid-template-columns:1fr;}
+.sidebar{margin-bottom:32px;}
+.foot-top{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="colorbar"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><span></span><span></span><span></span></div>
+      <div class="logo-text">Legal Authority Lab<em>AI Built for Law Firms</em></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="fl-family-law.html">Products</a>
+      <a href="master-valuator.html">Master Valuator</a>
+      <a href="about.html">About</a>
+      <a href="cle-workshops.html">Workshops</a>
+      <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="nav-cta">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <div class="ph-inner">
+    <div class="pre">— Resources</div>
+    <h1>Articles, guides, and law firm AI insights.</h1>
+    <p>Practical advice on discovery automation, family law strategy, client management, and AI tools built by attorneys who actually practice law.</p>
+  </div>
+</div>
+
+<!-- ARTICLES -->
+<section class="section">
+  <div class="s-inner section-with-sidebar">
+    <div>
+      <div class="article-grid">
+
+        <!-- Article 1 -->
+        <div class="article-card">
+          <div class="article-thumb">⚙️</div>
+          <div class="article-content">
+            <div class="article-meta">Discovery · Systems</div>
+            <h3 class="article-title">Why Discovery Delays Kill Your Mediation Window</h3>
+            <p class="article-excerpt">The hidden cost of slow disclosure. Why waiting for documents tanks settlement leverage and how to compress your discovery timeline by 60%.</p>
+            <a href="#" class="article-link">Read More →</a>
+          </div>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="article-card">
+          <div class="article-thumb">📊</div>
+          <div class="article-content">
+            <div class="article-meta">Financial Affidavit · Strategy</div>
+            <h3 class="article-title">The FA Audit That Wins Settlements</h3>
+            <p class="article-excerpt">Three questions to ask every Financial Affidavit. How to spot income hiding, phantom deductions, and assets the other side forgot to disclose.</p>
+            <a href="#" class="article-link">Read More →</a>
+          </div>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="article-card">
+          <div class="article-thumb">🤖</div>
+          <div class="article-content">
+            <div class="article-meta">AI · Workflow</div>
+            <h3 class="article-title">How Solo Attorneys Use AI Without Becoming AI Consultants</h3>
+            <p class="article-excerpt">The difference between useful AI and AI theater. How to pick tools, avoid integration hell, and stay focused on billable work.</p>
+            <a href="#" class="article-link">Read More →</a>
+          </div>
+        </div>
+
+        <!-- Article 4 -->
+        <div class="article-card">
+          <div class="article-thumb">⏱️</div>
+          <div class="article-content">
+            <div class="article-meta">Operations · Efficiency</div>
+            <h3 class="article-title">Systems Over Headcount: How FMLG Does $1M on One Attorney</h3>
+            <p class="article-excerpt">Why hiring more lawyers doesn't scale. How Family Matters Law Group runs a million-dollar firm with 1 attorney, 2 staff, and relentless systems.</p>
+            <a href="#" class="article-link">Read More →</a>
+          </div>
+        </div>
+
+        <!-- Article 5 -->
+        <div class="article-card">
+          <div class="article-thumb">📋</div>
+          <div class="article-content">
+            <div class="article-meta">Family Law · Mediation</div>
+            <h3 class="article-title">Mediation Prep: The Spreadsheet That Wins Half Your Cases</h3>
+            <p class="article-excerpt">ED charts, equalization models, and scenarios. How to walk into mediation with every number already calculated and every option modeled.</p>
+            <a href="#" class="article-link">Read More →</a>
+          </div>
+        </div>
+
+        <!-- Article 6 -->
+        <div class="article-card">
+          <div class="article-thumb">👥</div>
+          <div class="article-content">
+            <div class="article-meta">Client Management · Tools</div>
+            <h3 class="article-title">Closing Cases Faster: The Checklist That Prevents Rehires</h3>
+            <p class="article-excerpt">Why cases get opened back up. The closing protocol that confirms all terms are final, all signatures are executed, and nothing gets forgotten.</p>
+            <a href="#" class="article-link">Read More →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h3>By Topic</h3>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Popular</div>
+        <a href="#" class="sidebar-link">Discovery & Disclosure</a>
+        <a href="#" class="sidebar-link">Financial Affidavits</a>
+        <a href="#" class="sidebar-link">Mediation Strategy</a>
+        <a href="#" class="sidebar-link">Court Deadlines</a>
+        <a href="#" class="sidebar-link">Client Communication</a>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Tools & Systems</div>
+        <a href="#" class="sidebar-link">AI for Attorneys</a>
+        <a href="#" class="sidebar-link">Workflow Automation</a>
+        <a href="#" class="sidebar-link">Practice Management</a>
+        <a href="#" class="sidebar-link">Client Intake</a>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Firm Operations</div>
+        <a href="#" class="sidebar-link">Scaling Your Practice</a>
+        <a href="#" class="sidebar-link">Pricing & Billing</a>
+        <a href="#" class="sidebar-link">Staff Training</a>
+        <a href="#" class="sidebar-link">Time Management</a>
+      </div>
+
+      <div style="margin-top:28px;padding-top:20px;border-top:1px solid #1a1a1a;">
+        <h3 style="margin-bottom:12px;font-size:13px;">Subscribe</h3>
+        <p style="font-size:11px;color:#888;line-height:1.6;margin-bottom:14px;">New articles sent to your inbox every other week.</p>
+        <a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank" class="btn-cta" style="padding:8px 16px;font-size:11px;">Subscribe</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Ready to automate?</h2>
+    <p>These articles cover strategy and workflow. If you're ready to actually implement AI systems, book a call with Leisa or Naz. We'll walk through what's possible for your firm.</p>
+    <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="btn-cta">Exploration Call</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="fbrand"><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;">LAL Blog</div><p>Articles on family law, law firm operations, and AI tools written by practicing attorneys.</p></div>
+      <div class="flinks"><h5>Navigate</h5><a href="index.html">LAL Home</a><a href="fl-family-law.html">LAL Products</a><a href="about.html">About LAL</a><a href="cle-workshops.html">Workshops</a></div>
+      <div class="flinks"><h5>Explore</h5><a href="master-valuator.html">Master Valuator</a><a href="command-center.html">Command Center</a><a href="coaching.html">Coaching</a></div>
+      <div class="flinks"><h5>Connect</h5><a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank">Subscribe</a><a href="https://www.facebook.com/share/g/17hGx79vhP/" target="_blank">Community</a><a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank">Book a Call</a></div>
+    </div>
+    <div class="foot-bot">
+      <p>© 2026 Legal Authority Lab · Independent company</p>
+      <p><a href="mailto:leisa@legalauthoritylab.com">leisa@legalauthoritylab.com</a> · legalauthoritylab.com</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

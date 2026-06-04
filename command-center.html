@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Command Center — LAL Bot Portal</title>
+<meta name="description" content="Legal Authority Lab Command Center. Pay-as-you-go bot portal with credit system. Run Discovery, Drafting, GAL, and more on demand. Coming Q3 2026."/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0A0A0A;color:#F7F5F0;font-family:'Barlow',sans-serif;font-size:15px;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#0A0A0A;}::-webkit-scrollbar-thumb{background:#333;border-radius:2px;}
+.colorbar{height:4px;background:linear-gradient(to right,#FF1F8E 25%,#FF6B00 25% 50%,#C8D400 50% 75%,#00B5B8 75%);position:sticky;top:0;z-index:300;}
+
+/* NAV */
+nav{background:#0A0A0A;border-bottom:1px solid #1e1e1e;position:sticky;top:4px;z-index:200;}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:54px;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:9px;}
+.logo-mark{width:30px;height:30px;border:1.5px solid #FF1F8E;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
+.logo-mark span{display:block;height:2px;border-radius:1px;}
+.logo-mark span:nth-child(1){width:18px;background:#FF1F8E;}
+.logo-mark span:nth-child(2){width:12px;background:#FF6B00;}
+.logo-mark span:nth-child(3){width:7px;background:#C8D400;}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;line-height:1.1;}
+.logo-text em{display:block;font-style:normal;font-size:8px;font-weight:400;color:#444;letter-spacing:1px;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{font-size:12px;font-weight:500;color:#555;transition:color .15s;}
+.nav-links a:hover,.nav-links a.active{color:#F7F5F0;}
+.nav-cta{background:#FF1F8E!important;color:#000!important;padding:6px 14px;border-radius:2px;font-weight:700!important;font-size:11px!important;}
+
+/* HERO */
+.hero{max-width:1140px;margin:0 auto;padding:72px 20px 56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.hero-content h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,8vw,72px);font-weight:900;line-height:0.95;letter-spacing:-1px;margin-bottom:20px;color:#00B5B8;}
+.hero-content h1 span{color:#FF1F8E;}
+.hero-sub{font-size:15px;color:#888;max-width:560px;line-height:1.75;margin-bottom:32px;}
+.hero-sub strong{color:#F7F5F0;}
+.coming-soon-badge{display:inline-block;background:#C8D400;color:#000;padding:8px 16px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:12px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:20px;}
+.hero-visual{background:#111;border:1px solid #252525;border-radius:3px;padding:40px;text-align:center;min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.hero-visual-icon{font-size:64px;margin-bottom:16px;opacity:0.8;}
+.hero-visual p{font-size:12px;color:#555;margin-top:12px;}
+
+/* SECTIONS */
+.section{padding:60px 20px;}
+.s-inner{max-width:1140px;margin:0 auto;}
+.sec-label{font-size:9px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #252525;}
+.sec-head{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,5vw,46px);font-weight:900;line-height:1.0;letter-spacing:-0.5px;margin-bottom:24px;}
+.sec-sub{font-size:13px;color:#888;max-width:560px;line-height:1.75;margin-bottom:36px;}
+
+/* HOW IT WORKS */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:48px;}
+.step-card{background:#111;border:1px solid #252525;border-radius:3px;padding:24px;text-align:center;position:relative;}
+.step-num{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;color:#FF1F8E;margin-bottom:12px;}
+.step-card h3{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;margin-bottom:8px;}
+.step-card p{font-size:12px;color:#888;line-height:1.65;}
+.step-card::after{content:'';position:absolute;bottom:-32px;left:50%;transform:translateX(-50%);width:24px;height:24px;background:#0A0A0A;border:1px solid #252525;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:#FF6B00;}
+.step-card:nth-child(4)::after{display:none;}
+
+/* PRICING TIERS */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px;}
+.price-card{background:#111;border:1px solid #252525;border-radius:3px;padding:32px 24px;text-align:center;transition:border-color .15s;}
+.price-card:hover{border-color:#444;}
+.price-card.featured{border:1.5px solid #FF6B00;background:#0d0d0d;}
+.tier-name{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;margin-bottom:8px;}
+.tier-sub{font-size:12px;color:#888;margin-bottom:16px;min-height:32px;}
+.price-number{font-family:'JetBrains Mono',monospace;font-size:36px;font-weight:700;color:#FF6B00;margin-bottom:4px;}
+.price-period{font-size:11px;color:#555;margin-bottom:24px;}
+.price-features{text-align:left;margin-bottom:24px;border-top:1px solid #252525;border-bottom:1px solid #252525;padding:20px 0;}
+.price-features li{list-style:none;font-size:12px;color:#888;margin-bottom:8px;padding-left:16px;position:relative;}
+.price-features li::before{content:'✓';position:absolute;left:0;color:#C8D400;font-weight:700;}
+.price-btn{display:inline-block;background:#FF1F8E;color:#000;padding:10px 24px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;}
+.price-btn:hover{opacity:.85;}
+.price-card.featured .price-btn{background:#FF6B00;}
+
+/* FAQ */
+.faq-grid{display:grid;gap:16px;}
+.faq-item{background:#111;border:1px solid #252525;border-radius:3px;padding:20px;cursor:pointer;transition:border-color .15s;}
+.faq-item:hover{border-color:#444;}
+.faq-q{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;color:#F7F5F0;}
+.faq-toggle{font-size:16px;color:#FF6B00;transition:transform .2s;}
+.faq-item.open .faq-toggle{transform:rotate(180deg);}
+.faq-a{font-size:12px;color:#888;line-height:1.65;display:none;margin-top:12px;padding-top:12px;border-top:1px solid #252525;}
+.faq-item.open .faq-a{display:block;}
+
+/* CTA */
+.cta-section{background:#0d0d0d;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;padding:56px 20px;text-align:center;}
+.cta-inner{max-width:800px;margin:0 auto;}
+.cta-inner h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:16px;}
+.cta-inner p{font-size:13px;color:#888;line-height:1.8;margin-bottom:24px;}
+.btn-notify{display:inline-block;background:#FF6B00;color:#000;padding:13px 28px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;}
+.btn-notify:hover{opacity:.85;}
+
+/* FOOTER */
+footer{background:#050505;border-top:1px solid #1a1a1a;padding:44px 20px 24px;}
+.foot-inner{max-width:1140px;margin:0 auto;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px;padding-bottom:28px;border-bottom:1px solid #1a1a1a;margin-bottom:20px;}
+.fbrand p{font-size:11px;color:#555;line-height:1.65;margin-top:4px;}
+.flinks h5{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;color:#F7F5F0;}
+.flinks a{display:block;font-size:11px;color:#555;margin-bottom:6px;transition:color .15s;}
+.flinks a:hover{color:#F7F5F0;}
+.foot-bot{display:flex;justify-content:space-between;gap:20px;font-size:10px;color:#444;flex-wrap:wrap;}
+
+@media(max-width:768px){
+.hero{grid-template-columns:1fr;}
+.steps-grid{grid-template-columns:1fr;}
+.pricing-grid{grid-template-columns:1fr;}
+.foot-top{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="colorbar"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><span></span><span></span><span></span></div>
+      <div class="logo-text">Legal Authority Lab<em>AI Built for Law Firms</em></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="fl-family-law.html">Products</a>
+      <a href="master-valuator.html">Master Valuator</a>
+      <a href="about.html">About</a>
+      <a href="cle-workshops.html">Workshops</a>
+      <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="nav-cta">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="coming-soon-badge">Coming Q3 2026</div>
+    <h1><span>Command</span> Center</h1>
+    <p class="hero-sub">Pay-as-you-go LAL bot portal. Buy credits and run Discovery, Drafting, GAL, Contempt systems on demand — no subscription, no commitment, no setup fees.</p>
+    <p style="font-size:13px;color:#888;line-height:1.75;margin-top:24px;"><strong style="color:#F7F5F0;">Perfect for solo attorneys.</strong> Run one bot, pay for one bot. Scale up when you're ready.</p>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-visual-icon">⚙️</div>
+    <p>Platform in development. Early pricing locked for founding users.</p>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section" style="background:#0d0d0d;">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#00B5B8">— How It Works</div>
+    <h2 class="sec-head">Four steps to running a bot.</h2>
+    
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Buy Credits</h3>
+        <p>Choose your tier (Starter, Solo, Firm) and load your account with credits. Credits never expire.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Pick a Bot</h3>
+        <p>Select which LAL system you need. Discovery, Drafting, GAL, Contempt, Research — or combine them.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Run It</h3>
+        <p>Upload your case docs. Run the bot through the web interface. Get back a complete PDF report.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h3>Download</h3>
+        <p>Download your report, edit if needed, and use immediately. Credits deducted from your balance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TIERS -->
+<section class="section">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#FF6B00">— Simple Pricing</div>
+    <h2 class="sec-head">Choose your tier. No surprises.</h2>
+    <p class="sec-sub">All tiers include access to all LAL systems. Pricing shown is estimated — founding customers lock in lower rates.</p>
+    
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="tier-name">Starter</div>
+        <div class="tier-sub">Solo practice, occasional use</div>
+        <div class="price-number">$99</div>
+        <div class="price-period">50 credits per month, auto-renew</div>
+        <ul class="price-features">
+          <li>Discovery bot (1 run) = 5 credits</li>
+          <li>Drafting bot (1 run) = 3 credits</li>
+          <li>GAL bot (1 run) = 4 credits</li>
+          <li>Contempt bot (1 run) = 1 credit</li>
+          <li>Web interface access</li>
+          <li>Email support</li>
+        </ul>
+        <a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank" class="price-btn">Get Started</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="tier-name">Solo</div>
+        <div class="tier-sub">Growing practice, weekly use</div>
+        <div class="price-number">$299</div>
+        <div class="price-period">200 credits per month, auto-renew</div>
+        <ul class="price-features">
+          <li>All Discovery bots unlimited</li>
+          <li>All Drafting bots unlimited</li>
+          <li>GAL bots (2x per month)</li>
+          <li>Contempt bots unlimited</li>
+          <li>Priority support</li>
+          <li>Unused credits roll over</li>
+        </ul>
+        <a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank" class="price-btn">Get Started</a>
+      </div>
+
+      <div class="price-card">
+        <div class="tier-name">Firm</div>
+        <div class="tier-sub">Team practice, daily use</div>
+        <div class="price-number">$799</div>
+        <div class="price-period">800 credits per month, auto-renew</div>
+        <ul class="price-features">
+          <li>All systems unlimited</li>
+          <li>Team accounts (3 users)</li>
+          <li>Usage analytics</li>
+          <li>Custom credit packages</li>
+          <li>Dedicated support</li>
+          <li>Annual discount available</li>
+        </ul>
+        <a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank" class="price-btn">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:#0d0d0d;">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#FF1F8E">— FAQ</div>
+    <h2 class="sec-head">Questions answered.</h2>
+    
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">Do credits expire?<span class="faq-toggle">▼</span></div>
+        <div class="faq-a">No. Credits are yours to keep. Use them whenever you need. Monthly subscriptions auto-renew unless cancelled.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I cancel anytime?<span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes. No contract. Cancel your subscription at any time. Any remaining credits stay in your account.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What if a bot fails?<span class="faq-toggle">▼</span></div>
+        <div class="faq-a">If a bot run fails, credits are refunded. We stand behind our bots — if you don't get a usable result, you don't pay.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I use this in discovery disputes?<span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes. Command Center is perfect for quick discovery audits, affidavit reviews, and opposing-party motion prep. All reports are attorney-reviewed, not AI.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is my case data secure?<span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Absolutely. All data is encrypted in transit and at rest. We never retain case data. Reports are deleted after download.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I add team members?<span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Firm tier includes up to 3 user accounts. Solo and Starter are single-user. Each user has their own login and usage tracking.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Get early access.</h2>
+    <p>Command Center launches in Q3 2026. Founding customers lock in lifetime pricing rates. Join the waitlist and get an email the day it launches.</p>
+    <a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank" class="btn-notify">Join Waitlist</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="fbrand"><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;">Command Center</div><p>Pay-as-you-go portal for Legal Authority Lab bots. Coming Q3 2026.</p></div>
+      <div class="flinks"><h5>Navigate</h5><a href="index.html">LAL Home</a><a href="fl-family-law.html">LAL Products</a><a href="about.html">About LAL</a><a href="cle-workshops.html">Workshops</a></div>
+      <div class="flinks"><h5>Get Started</h5><a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank">Join Waitlist</a><a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank">Exploration Call</a></div>
+      <div class="flinks"><h5>Learn</h5><a href="fl-family-law.html">About Bots</a><a href="https://www.facebook.com/share/g/17hGx79vhP/" target="_blank">Community</a><a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank">Email Updates</a></div>
+    </div>
+    <div class="foot-bot">
+      <p>© 2026 Legal Authority Lab · Independent company</p>
+      <p><a href="mailto:leisa@legalauthoritylab.com">leisa@legalauthoritylab.com</a> · legalauthoritylab.com</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.addEventListener('click',()=>item.classList.toggle('open'));
+});
+</script>
+
+</body>
+</html>

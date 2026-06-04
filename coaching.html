@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LAL Coaching — Implementation & Strategy</title>
+<meta name="description" content="Legal Authority Lab coaching. Custom AI implementation, workflow strategy, team training, and done-for-you bot setup. $5,000 retainer + hourly sessions."/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0A0A0A;color:#F7F5F0;font-family:'Barlow',sans-serif;font-size:15px;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#0A0A0A;}::-webkit-scrollbar-thumb{background:#333;border-radius:2px;}
+.colorbar{height:4px;background:linear-gradient(to right,#FF1F8E 25%,#FF6B00 25% 50%,#C8D400 50% 75%,#00B5B8 75%);position:sticky;top:0;z-index:300;}
+
+/* NAV */
+nav{background:#0A0A0A;border-bottom:1px solid #1e1e1e;position:sticky;top:4px;z-index:200;}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:54px;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:9px;}
+.logo-mark{width:30px;height:30px;border:1.5px solid #FF1F8E;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
+.logo-mark span{display:block;height:2px;border-radius:1px;}
+.logo-mark span:nth-child(1){width:18px;background:#FF1F8E;}
+.logo-mark span:nth-child(2){width:12px;background:#FF6B00;}
+.logo-mark span:nth-child(3){width:7px;background:#C8D400;}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;line-height:1.1;}
+.logo-text em{display:block;font-style:normal;font-size:8px;font-weight:400;color:#444;letter-spacing:1px;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{font-size:12px;font-weight:500;color:#555;transition:color .15s;}
+.nav-links a:hover,.nav-links a.active{color:#F7F5F0;}
+.nav-cta{background:#FF1F8E!important;color:#000!important;padding:6px 14px;border-radius:2px;font-weight:700!important;font-size:11px!important;}
+
+/* PAGE HEADER */
+.page-hdr{background:#0d0d0d;border-bottom:1px solid #1a1a1a;padding:56px 20px 44px;}
+.ph-inner{max-width:1140px;margin:0 auto;}
+.pre{font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#FF6B00;font-weight:700;margin-bottom:12px;}
+.page-hdr h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,7vw,56px);font-weight:900;line-height:0.95;letter-spacing:-1px;margin-bottom:14px;}
+.page-hdr p{font-size:14px;color:#888;max-width:660px;line-height:1.75;}
+
+/* SECTIONS */
+.section{padding:56px 20px;}
+.s-inner{max-width:1140px;margin:0 auto;}
+.sec-label{font-size:9px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #252525;}
+.sec-head{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,5vw,46px);font-weight:900;line-height:1.0;letter-spacing:-0.5px;margin-bottom:24px;}
+.sec-sub{font-size:13px;color:#888;max-width:560px;line-height:1.75;margin-bottom:36px;}
+
+/* OFFERINGS */
+.offer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:48px;}
+.offer-card{background:#111;border:1px solid #252525;border-radius:3px;padding:28px;transition:border-color .15s;}
+.offer-card:hover{border-color:#444;}
+.offer-icon{font-size:32px;margin-bottom:12px;}
+.offer-card h3{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;margin-bottom:10px;}
+.offer-card p{font-size:12px;color:#888;line-height:1.65;margin-bottom:14px;}
+.offer-detail{font-size:11px;color:#666;font-style:italic;}
+
+/* PACKAGE BREAKDOWN */
+.breakdown{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:3px;padding:32px;margin-bottom:48px;}
+.break-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;margin-bottom:24px;color:#F7F5F0;}
+.break-item{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #1a1a1a;}
+.break-item:last-child{border:none;}
+.break-label{font-size:12px;font-weight:600;color:#F7F5F0;}
+.break-desc{font-size:12px;color:#888;}
+
+/* WHO SHOULD */
+.suitable{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:48px;}
+.suitable-list{background:#111;border:1px solid #252525;border-radius:3px;padding:24px;}
+.suitable-head{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;margin-bottom:14px;color:#F7F5F0;}
+.suitable-list li{list-style:none;font-size:12px;color:#888;margin-bottom:8px;padding-left:16px;position:relative;}
+.suitable-list li::before{content:'✓';position:absolute;left:0;color:#C8D400;font-weight:700;}
+.suitable-list.right li::before{content:'✗';color:#FF6B00;}
+
+/* PROCESS */
+.process-timeline{display:grid;gap:16px;}
+.process-step{background:#111;border:1px solid #252525;border-radius:3px;padding:24px;display:grid;grid-template-columns:50px 1fr;gap:16px;align-items:start;}
+.process-num{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;color:#FF1F8E;min-width:50px;}
+.process-content h3{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;margin-bottom:6px;}
+.process-content p{font-size:12px;color:#888;line-height:1.65;}
+
+/* CTA */
+.cta-section{background:#0d0d0d;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;padding:56px 20px;text-align:center;}
+.cta-inner{max-width:800px;margin:0 auto;}
+.cta-inner h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:16px;}
+.cta-inner p{font-size:13px;color:#888;line-height:1.8;margin-bottom:24px;}
+.btn-cta{display:inline-block;background:#FF1F8E;color:#000;padding:13px 28px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;margin:0 12px;}
+.btn-cta:hover{opacity:.85;}
+.btn-cta.secondary{background:transparent;border:1.5px solid #FF6B00;color:#FF6B00;}
+
+/* FOOTER */
+footer{background:#050505;border-top:1px solid #1a1a1a;padding:44px 20px 24px;}
+.foot-inner{max-width:1140px;margin:0 auto;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px;padding-bottom:28px;border-bottom:1px solid #1a1a1a;margin-bottom:20px;}
+.fbrand p{font-size:11px;color:#555;line-height:1.65;margin-top:4px;}
+.flinks h5{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;color:#F7F5F0;}
+.flinks a{display:block;font-size:11px;color:#555;margin-bottom:6px;transition:color .15s;}
+.flinks a:hover{color:#F7F5F0;}
+.foot-bot{display:flex;justify-content:space-between;gap:20px;font-size:10px;color:#444;flex-wrap:wrap;}
+
+@media(max-width:768px){
+.offer-grid{grid-template-columns:1fr;}
+.suitable{grid-template-columns:1fr;}
+.break-item{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="colorbar"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><span></span><span></span><span></span></div>
+      <div class="logo-text">Legal Authority Lab<em>AI Built for Law Firms</em></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="fl-family-law.html">Products</a>
+      <a href="master-valuator.html">Master Valuator</a>
+      <a href="about.html">About</a>
+      <a href="cle-workshops.html">Workshops</a>
+      <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="nav-cta">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <div class="ph-inner">
+    <div class="pre">— Coaching Program</div>
+    <h1>Done-for-you AI setup, strategy, and training.</h1>
+    <p>Not a generic consultant. Real lawyers who've built their firm with AI. Custom implementation, team training, and workflow automation built to your firm's standards.</p>
+  </div>
+</div>
+
+<!-- WHAT'S INCLUDED -->
+<section class="section" style="background:#0d0d0d;">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#FF6B00">— What Coaching Includes</div>
+    <h2 class="sec-head">Start with a solid foundation.</h2>
+    
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-icon">🔍</div>
+        <h3>Pre-Session Strategy Call</h3>
+        <p>Free 30-minute call to assess your firm, scope your needs, and build your 90-day roadmap. No cost. Doesn't count against retainer.</p>
+        <div class="offer-detail">Included with every coaching package.</div>
+      </div>
+
+      <div class="offer-card">
+        <div class="offer-icon">📦</div>
+        <h3>Done-For-You Install</h3>
+        <p>Leisa or Naz personally installs every LAL system you own into your firm's workflows. Smokeball integration, template setup, all documentation.</p>
+        <div class="offer-detail">Included with coaching retainer.</div>
+      </div>
+
+      <div class="offer-card">
+        <div class="offer-icon">⚖️</div>
+        <h3>Ethics Compliance Bot</h3>
+        <p>Every coaching client gets their state's ethics compliance bot installed for free. Florida attorneys get FL bar-specific rules bot. Out-of-state custom bots built in first session.</p>
+        <div class="offer-detail">Included with every package.</div>
+      </div>
+
+      <div class="offer-card">
+        <div class="offer-icon">👥</div>
+        <h3>Team Training</h3>
+        <p>Live training for your paralegals, staff, and associate attorneys. Custom training sessions sized to your team. Document management, workflow, process mapping.</p>
+        <div class="offer-detail">Sessions can be used for training or coaching.</div>
+      </div>
+
+      <div class="offer-card">
+        <div class="offer-icon">🤖</div>
+        <h3>Custom Bot Building</h3>
+        <p>Build new bots together. Live session where Leisa or Naz helps you design a workflow bot specific to your case types or client needs.</p>
+        <div class="offer-detail">Replaces traditional consulting.</div>
+      </div>
+
+      <div class="offer-card">
+        <div class="offer-icon">📊</div>
+        <h3>Workflow Optimization</h3>
+        <p>Audit your current processes, identify bottlenecks, and redesign them with AI. Process maps, task lists, client communication templates — all custom to your practice.</p>
+        <div class="offer-detail">Strategy session focus.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#00B5B8">— Pricing Structure</div>
+    <h2 class="sec-head">Retainer + Sessions.</h2>
+    <p class="sec-sub">Standard coaching engagement: $5,000 retainer prepaid + hourly session bookings. Sessions are the work. Retainer is your credit balance.</p>
+    
+    <div class="breakdown">
+      <div class="break-title">Retainer Package</div>
+      <div class="break-item">
+        <div><div class="break-label">Retainer</div><div class="break-desc">$5,000 prepaid credit balance</div></div>
+        <div style="text-align:right;"><strong style="color:#C8D400;font-size:16px;">$5,000</strong></div>
+      </div>
+      <div class="break-item">
+        <div><div class="break-label">Pre-Strategy Call</div><div class="break-desc">30-min free (doesn't count against retainer)</div></div>
+        <div style="text-align:right;"><strong style="color:#00B5B8;">FREE</strong></div>
+      </div>
+      <div class="break-item">
+        <div><div class="break-label">DFY Bot Install</div><div class="break-desc">All systems you own, personal setup</div></div>
+        <div style="text-align:right;"><strong style="color:#00B5B8;">INCLUDED</strong></div>
+      </div>
+      <div class="break-item">
+        <div><div class="break-label">Ethics Bot</div><div class="break-desc">State-specific compliance bot included</div></div>
+        <div style="text-align:right;"><strong style="color:#00B5B8;">INCLUDED</strong></div>
+      </div>
+
+      <div style="margin-top:32px;padding-top:32px;border-top:1px solid #1a1a1a;">
+        <div class="break-title" style="margin-bottom:16px;">Session Pricing (Booked on Top of Retainer)</div>
+        <div class="break-item">
+          <div><div class="break-label">2-Hour Zoom Session</div><div class="break-desc">Strategy, training, custom bot building, or workflow design</div></div>
+          <div style="text-align:right;"><strong style="color:#FF6B00;font-size:16px;">$600</strong></div>
+        </div>
+        <div class="break-item">
+          <div><div class="break-label">1-Hour Zoom Session</div><div class="break-desc">Focused implementation, Q&A, troubleshooting</div></div>
+          <div style="text-align:right;"><strong style="color:#FF6B00;font-size:16px;">$350</strong></div>
+        </div>
+        <div class="break-item">
+          <div><div class="break-label">30-Minute Session</div><div class="break-desc">Quick check-in, specific question, issue resolution</div></div>
+          <div style="text-align:right;"><strong style="color:#FF6B00;font-size:16px;">$150</strong></div>
+        </div>
+        <div class="break-item">
+          <div><div class="break-label">Between-Session Work</div><div class="break-desc">Async work, custom builds, documentation (hourly)</div></div>
+          <div style="text-align:right;"><strong style="color:#FF6B00;font-size:16px;">$400/hr</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:#888;line-height:1.75;"><strong style="color:#F7F5F0;">Bundle discount:</strong> When you buy coaching + LAL systems together at contract time, you get an additional discount. 1 system = 10% off both. 2 systems = 20% off. 3+ systems = 25% off. Coaching-only engagements: 10% off first $2,500.</p>
+  </div>
+</section>
+
+<!-- WHO SHOULD -->
+<section class="section" style="background:#0d0d0d;">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#FF1F8E">— Is Coaching Right for You</div>
+    
+    <div class="suitable">
+      <div>
+        <div class="suitable-list">
+          <div class="suitable-head">Coaching is a fit if you:</div>
+          <ul>
+            <li>Are buying a LAL system for the first time</li>
+            <li>Want done-for-you installation and setup</li>
+            <li>Need workflow optimization or process redesign</li>
+            <li>Want to train your team on new tools</li>
+            <li>Need to build custom bots for your cases</li>
+            <li>Want direct access to LAL attorneys</li>
+            <li>Are scaling and need to systemize fast</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="suitable-list right">
+          <div class="suitable-head">Coaching may not fit if you:</div>
+          <ul>
+            <li>Are looking for general AI consulting (we're case-specific)</li>
+            <li>Want generic business coaching or mentoring</li>
+            <li>Only need occasional technical support (use email)</li>
+            <li>Are buying a single low-cost system (Command Center better)</li>
+            <li>Prefer self-service implementation (templates available)</li>
+            <li>Just want to buy and forget (fine, but you miss setup)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section">
+  <div class="s-inner">
+    <div class="sec-label" style="color:#C8D400">— The Coaching Process</div>
+    <h2 class="sec-head">How it works.</h2>
+    
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <div class="process-content">
+          <h3>Exploration Call</h3>
+          <p>Free 30-minute call to discuss your firm, practice areas, case types, and what you want to accomplish. No pressure. We talk through whether coaching is the right fit.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <div class="process-content">
+          <h3>Strategy Call</h3>
+          <p>If moving forward, we schedule a 60-minute paid strategy call ($350) to dive deeper. Case review, workflow walkthrough, problem identification, and 90-day roadmap. Counts against retainer if you hire.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <div class="process-content">
+          <h3>Sign Engagement Agreement</h3>
+          <p>Coaching Engagement Agreement + Bot License. $5,000 retainer due, credit balance established. We schedule your first implementation session.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <div class="process-content">
+          <h3>DFY Installation & Training</h3>
+          <p>First session: we install every LAL system you own, integrate with Smokeball, build templates, set up ethics bot. Live walkthrough with your team. You're ready to use the systems immediately.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-num">5</div>
+        <div class="process-content">
+          <h3>Ongoing Sessions</h3>
+          <p>Book sessions as needed. Strategy, custom bot building, workflow redesign, troubleshooting. Sessions billed against your retainer until depleted. Renew at the end or go pay-per-use with Command Center.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Ready to start?</h2>
+    <p>Book a free 30-minute exploration call with Leisa or Naz. We'll walk through your firm, answer questions, and explain exactly what coaching looks like for your practice.</p>
+    <a href="https://calendly.com/leisawintz/lal-coaching-initial" target="_blank" class="btn-cta">Free Exploration Call</a>
+    <a href="https://calendly.com/leisawintz/lal-custom-ai-strategy" target="_blank" class="btn-cta secondary">Schedule Strategy Call</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="fbrand"><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;">LAL Coaching</div><p>Personal implementation and strategy for LAL systems. Direct access to practicing attorneys.</p></div>
+      <div class="flinks"><h5>Navigate</h5><a href="index.html">LAL Home</a><a href="fl-family-law.html">LAL Products</a><a href="about.html">About LAL</a><a href="cle-workshops.html">Workshops</a></div>
+      <div class="flinks"><h5>Get Started</h5><a href="https://calendly.com/leisawintz/lal-coaching-initial" target="_blank">Free Call</a><a href="https://calendly.com/leisawintz/lal-custom-ai-strategy" target="_blank">Strategy Call</a></div>
+      <div class="flinks"><h5>Learn</h5><a href="fl-family-law.html">Products</a><a href="https://www.facebook.com/share/g/17hGx79vhP/" target="_blank">Community</a><a href="https://lp.constantcontactpages.com/sl/SN4gLP8/legalauthoritylab" target="_blank">Email Updates</a></div>
+    </div>
+    <div class="foot-bot">
+      <p>© 2026 Legal Authority Lab · Independent company</p>
+      <p><a href="mailto:leisa@legalauthoritylab.com">leisa@legalauthoritylab.com</a> · legalauthoritylab.com</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

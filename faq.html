@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LAL FAQ — Frequently Asked Questions</title>
+<meta name="description" content="Frequently asked questions about Legal Authority Lab. Pricing, systems, implementation, coaching, and support."/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0A0A0A;color:#F7F5F0;font-family:'Barlow',sans-serif;font-size:15px;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#0A0A0A;}::-webkit-scrollbar-thumb{background:#333;border-radius:2px;}
+.colorbar{height:4px;background:linear-gradient(to right,#FF1F8E 25%,#FF6B00 25% 50%,#C8D400 50% 75%,#00B5B8 75%);position:sticky;top:0;z-index:300;}
+
+/* NAV */
+nav{background:#0A0A0A;border-bottom:1px solid #1e1e1e;position:sticky;top:4px;z-index:200;}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:54px;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:9px;}
+.logo-mark{width:30px;height:30px;border:1.5px solid #FF1F8E;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
+.logo-mark span{display:block;height:2px;border-radius:1px;}
+.logo-mark span:nth-child(1){width:18px;background:#FF1F8E;}
+.logo-mark span:nth-child(2){width:12px;background:#FF6B00;}
+.logo-mark span:nth-child(3){width:7px;background:#C8D400;}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;line-height:1.1;}
+.logo-text em{display:block;font-style:normal;font-size:8px;font-weight:400;color:#444;letter-spacing:1px;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{font-size:12px;font-weight:500;color:#555;transition:color .15s;}
+.nav-links a:hover,.nav-links a.active{color:#F7F5F0;}
+.nav-cta{background:#FF1F8E!important;color:#000!important;padding:6px 14px;border-radius:2px;font-weight:700!important;font-size:11px!important;}
+
+/* PAGE HEADER */
+.page-hdr{background:#0d0d0d;border-bottom:1px solid #1a1a1a;padding:56px 20px 44px;}
+.ph-inner{max-width:900px;margin:0 auto;}
+.pre{font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#FF6B00;font-weight:700;margin-bottom:12px;}
+.page-hdr h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,7vw,56px);font-weight:900;line-height:0.95;letter-spacing:-1px;margin-bottom:14px;}
+.page-hdr p{font-size:14px;color:#888;line-height:1.75;}
+
+/* SECTIONS */
+.section{padding:56px 20px;}
+.s-inner{max-width:900px;margin:0 auto;}
+
+/* FAQ GROUPS */
+.faq-group{margin-bottom:48px;}
+.faq-group-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid #252525;color:#FF6B00;}
+.faq-item{background:#111;border:1px solid #252525;border-radius:3px;margin-bottom:12px;transition:border-color .15s;}
+.faq-item:hover{border-color:#444;}
+.faq-q{padding:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-q-text{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;flex:1;}
+.faq-toggle{font-size:16px;color:#FF6B00;transition:transform .2s;flex-shrink:0;}
+.faq-item.open .faq-toggle{transform:rotate(180deg);}
+.faq-a{padding:0 16px 16px;font-size:12px;color:#888;line-height:1.75;max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.faq-item.open .faq-a{max-height:500px;padding:16px;}
+.faq-a strong{color:#F7F5F0;}
+.faq-a a{color:#FF6B00;}
+.faq-a a:hover{color:#FF1F8E;}
+
+/* CTA */
+.cta-section{background:#0d0d0d;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;padding:56px 20px;text-align:center;margin-top:56px;}
+.cta-inner{max-width:800px;margin:0 auto;}
+.cta-inner h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:16px;}
+.cta-inner p{font-size:13px;color:#888;line-height:1.8;margin-bottom:24px;}
+.btn-cta{display:inline-block;background:#FF1F8E;color:#000;padding:13px 28px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;}
+.btn-cta:hover{opacity:.85;}
+
+/* FOOTER */
+footer{background:#050505;border-top:1px solid #1a1a1a;padding:44px 20px 24px;}
+.foot-inner{max-width:1140px;margin:0 auto;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px;padding-bottom:28px;border-bottom:1px solid #1a1a1a;margin-bottom:20px;}
+.fbrand p{font-size:11px;color:#555;line-height:1.65;margin-top:4px;}
+.flinks h5{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;color:#F7F5F0;}
+.flinks a{display:block;font-size:11px;color:#555;margin-bottom:6px;transition:color .15s;}
+.flinks a:hover{color:#F7F5F0;}
+.foot-bot{display:flex;justify-content:space-between;gap:20px;font-size:10px;color:#444;flex-wrap:wrap;}
+
+@media(max-width:768px){
+.foot-top{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="colorbar"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><span></span><span></span><span></span></div>
+      <div class="logo-text">Legal Authority Lab<em>AI Built for Law Firms</em></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="fl-family-law.html">Products</a>
+      <a href="master-valuator.html">Master Valuator</a>
+      <a href="about.html">About</a>
+      <a href="cle-workshops.html">Workshops</a>
+      <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="nav-cta">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <div class="ph-inner">
+    <div class="pre">— Help Center</div>
+    <h1>Frequently Asked Questions</h1>
+    <p>Everything you need to know about LAL products, pricing, coaching, and support.</p>
+  </div>
+</div>
+
+<!-- ABOUT LAL -->
+<section class="section">
+  <div class="s-inner">
+    <div class="faq-group">
+      <div class="faq-group-title">About Legal Authority Lab</div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">What is Legal Authority Lab?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">LAL is an AI systems company built for family law attorneys. We build bots that handle discovery, drafting, GAL investigations, contempt analysis, and research. All systems are built on real legal workflows proven at Family Matters Law Group (FMLG), our one-attorney family law firm. We don't outsource. We don't give you generic AI. We give you systems tested on real clients.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Who are the founders?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Three equal co-founders: <strong>Leisa Wintz</strong> (18+ years FL family law, founder of FMLG), <strong>Nazarena Hauser</strong> (Operations & Partnership), and <strong>Cheryl-Dene Spring, Esq.</strong> (CFO, 15+ years attorney/real estate, founder of Sobi Law Group, Super Lawyers Rising Star 2017–2020). We're all practicing attorneys who've built and scaled law firms.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Is LAL independent from Family Matters Law Group?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes. LAL is a separate, independent company. FMLG is our proof of concept — we test all systems there first — but LAL is its own entity with its own revenue, clients, and roadmap. FMLG is still fully operational as a family law firm.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">When was LAL founded?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">April 28, 2026. We launched publicly with 120 attorney sign-ups within 24 hours of our first post. 67 attorneys are currently on the waitlist. Revenue to date: $5K. Pipeline: $40K+.</div>
+      </div>
+    </div>
+
+    <div class="faq-group">
+      <div class="faq-group-title">Products & Systems</div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">What systems does LAL offer?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Currently live: <strong>Discovery Suite</strong> ($5,000) — 8 bots for financial disclosure review, cross-checking, and gap analysis. <strong>GAL Suite</strong> ($2,500) — investigation, reporting, chronology. <strong>Drafting Bot</strong> ($1,500) — pleadings, motions, proposed orders. <strong>Contempt Suite</strong> ($697) — contempt analysis and defense. In development: Divorce Bot, Paternity Bot, Modification Bot, Name Change Bot, Research Suite, Mediation Prep Bot (all $197). Master Valuator (coming Sep–Oct 2026) and Command Center (coming Q3 2026) are in active development.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">What do I get when I buy a system?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">One-time purchase. You own the bot(s) forever. Includes bot install, documentation, state ethics bot for your jurisdiction (included), and email support. Coaching available separately if you want done-for-you setup and training.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Are there subscription fees?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">No. LAL systems are one-time purchases. You pay once and own them. No monthly fees. No AI subscriptions required. (Master Valuator and Command Center will have optional subscription tiers when they launch, but these are separate from the core LAL systems.)</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Can I combine systems? Is there a discount?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes. Bundle discounts apply at purchase: 2 systems = 10% off | 3 systems = 15% off | 4+ systems = 20% off. If you also buy coaching, discounts are larger: 1 system + coaching = 10% off both | 2 systems + coaching = 20% off both | 3+ systems + coaching = 25-30% off.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Do I need Claude Pro or ChatGPT to use LAL systems?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">No. LAL bots are built to work with Claude Pro or higher (Teams/Enterprise). You don't need a separate AI subscription — Claude Pro is ~$20/month. Some bots work with other AI platforms, but Claude is primary.</div>
+      </div>
+    </div>
+
+    <div class="faq-group">
+      <div class="faq-group-title">Pricing & Payment</div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">What payment methods do you accept?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Credit card (Stripe). We also support payment plans for larger packages. Email <a href="mailto:leisa@legalauthoritylab.com">leisa@legalauthoritylab.com</a> to discuss custom payment arrangements.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Can I get a refund if I'm not satisfied?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes. 30-day money-back guarantee. If a bot doesn't work for you, we refund the full purchase price. No questions asked. (Coaching is non-refundable once sessions begin, but we're confident you'll see immediate value.)</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Do you offer invoicing for law firms?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes. We can invoice your firm directly and accept payment by check or ACH. For invoicing, email <a href="mailto:leisa@legalauthoritylab.com">leisa@legalauthoritylab.com</a> with your firm details.</div>
+      </div>
+    </div>
+
+    <div class="faq-group">
+      <div class="faq-group-title">Coaching</div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">What is LAL Coaching?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Done-for-you LAL system implementation, team training, and custom bot building. A $5,000 retainer buys you a credit balance. Sessions are billed against the balance: 2-hour session = $600 | 1-hour = $350 | 30-min = $150. Your coach is Leisa or Naz, both practicing attorneys with law firm and AI experience.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Do I need coaching if I buy a system?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">No. Coaching is optional. You can self-install with documentation and templates. But if you want done-for-you setup, team training, or custom bot building, coaching is the way to go.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">What's included in the $5,000 retainer?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Your $5,000 retainer includes: (1) free 30-min strategy call (doesn't count against retainer), (2) done-for-you install of all systems you own, (3) state ethics bot included, (4) $5,000 credit balance for sessions. Sessions are booked on top of the retainer and charged against your balance.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Can I book a strategy call before committing?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes. Free 30-minute exploration call. No sales pitch. We'll walk through your firm, discuss your needs, and explain what coaching looks like for you. <a href="https://calendly.com/leisawintz/lal-coaching-initial" target="_blank">Book here</a>.</div>
+      </div>
+    </div>
+
+    <div class="faq-group">
+      <div class="faq-group-title">Support & Implementation</div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">What support do I get if I buy a system?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Email support included. We respond within 24 business hours. For hands-on implementation or training, coaching is the add-on service.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Can I install the systems myself?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes. All systems come with setup documentation and templates. If you're comfortable with AI tools, you can self-install. Many attorneys do. If you want hands-on guidance, that's what coaching is for.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">How long does implementation take?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Self-install: 2–4 hours per system for most attorneys. Coaching-assisted: We do the install and training in your first session (usually 2 hours), then you're ready to go. Ongoing custom builds and optimizations are billed separately.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Do you train my whole team?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes, if you have coaching. Training sessions can be included in your retainer. We run live team sessions walking paralegals and staff through the workflows, document management, and client communication protocols.</div>
+      </div>
+    </div>
+
+    <div class="faq-group">
+      <div class="faq-group-title">Data & Security</div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Is my case data secure?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes. All data is encrypted in transit and at rest. Your case files are processed through your own AI account (Claude Pro or higher), not through LAL. We don't store case data. Reports are generated and saved to your device only.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Does LAL see my client data?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">No. Systems run locally in your Claude account. The bots process your data, but LAL doesn't access, store, or retain it. Coaching sessions are confidential attorney-client conversations.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Can I use LAL in discovery disputes?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes. LAL reports are attorney-reviewed analysis, not AI-generated documents. The systems help you work faster and smarter, but your attorney judgment is the final gate. Perfectly appropriate for mediation, discovery disputes, and litigation.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Is LAL compliant with ethics rules?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes. Every LAL customer gets their state's ethics compliance bot included. Florida attorneys get FL bar-specific ethics rules. Coaching includes ethics training. All workflows are designed with attorney oversight and professional responsibility in mind.</div>
+      </div>
+    </div>
+
+    <div class="faq-group">
+      <div class="faq-group-title">Getting Started</div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">What's the first step?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Book a free exploration call with Leisa or Naz. 30 minutes. No sales pitch. We'll discuss your firm, your needs, and whether LAL is the right fit. <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank">Book here</a>.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">How do I buy a system?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">After your exploration call (or directly), we send you a simple proposal. One-page PDF with system details and pricing. Review it, ask questions, and if you're ready, click the Stripe payment link. You're set up immediately.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Can I talk to someone who uses LAL?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes. We have coaching clients who are live with Discovery and Drafting systems. During your exploration call, ask for a customer reference. We're happy to connect you.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><div class="faq-q-text">Can I see a demo?</div><span class="faq-toggle">▼</span></div>
+        <div class="faq-a">Yes. We run live 30-minute working demos. You'll see a Discovery system in action on a real financial affidavit. <a href="https://calendly.com/leisawintz/working-demo" target="_blank">Book here</a>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Still have questions?</h2>
+    <p>Email us anytime. Or book a free exploration call and ask Leisa or Naz directly.</p>
+    <a href="mailto:leisa@legalauthoritylab.com" class="btn-cta">Email Us</a>
+    <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="btn-cta" style="background:#FF6B00;margin-left:12px;">Book a Call</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="fbrand"><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;">LAL FAQ</div><p>Questions about Legal Authority Lab products, pricing, coaching, and support.</p></div>
+      <div class="flinks"><h5>Navigate</h5><a href="index.html">LAL Home</a><a href="fl-family-law.html">Products</a><a href="about.html">About</a><a href="cle-workshops.html">Workshops</a></div>
+      <div class="flinks"><h5>Explore</h5><a href="master-valuator.html">Master Valuator</a><a href="command-center.html">Command Center</a><a href="coaching.html">Coaching</a></div>
+      <div class="flinks"><h5>Contact</h5><a href="mailto:leisa@legalauthoritylab.com">Email</a><a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank">Book Call</a><a href="https://www.facebook.com/share/g/17hGx79vhP/" target="_blank">Community</a></div>
+    </div>
+    <div class="foot-bot">
+      <p>© 2026 Legal Authority Lab · Independent company</p>
+      <p><a href="mailto:leisa@legalauthoritylab.com">leisa@legalauthoritylab.com</a> · legalauthoritylab.com</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>{
+    item.classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>
