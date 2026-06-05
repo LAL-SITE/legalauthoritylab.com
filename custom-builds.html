@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Coaching — Legal Authority Lab</title>
-<meta name="description" content="Private coaching and workshop membership. Done-for-you installation, customization, and training with choice of coaches."/>
+<title>Custom Builds — Legal Authority Lab</title>
+<meta name="description" content="Custom AI workflow systems. Scoped to your firm. Ownership model. Your templates, your rules. Starting at $15K."/>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -43,20 +43,22 @@ nav{background:#0A0A0A;border-bottom:1px solid #1e1e1e;position:sticky;top:4px;z
 .sec-label{font-size:9px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #252525;}
 .sec-head{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,5vw,46px);font-weight:900;line-height:1.0;letter-spacing:-0.5px;margin-bottom:24px;}
 
-/* OPTION GRID */
-.option-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px;}
-.option-card{background:#0d0d0d;border:1px solid #252525;border-radius:3px;padding:32px;transition:all .2s;}
-.option-card:hover{border-color:#FF1F8E;background:#111;}
-.option-type{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#FF6B00;margin-bottom:8px;}
-.option-title{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;margin-bottom:12px;color:#F7F5F0;}
-.option-price{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;color:#FF1F8E;margin-bottom:16px;}
-.option-desc{font-size:13px;color:#888;margin-bottom:20px;line-height:1.65;}
-.option-features{font-size:12px;color:#888;margin-bottom:20px;}
-.option-features li{list-style:none;margin-bottom:8px;padding-left:16px;position:relative;}
-.option-features li::before{content:'•';position:absolute;left:0;color:#C8D400;}
+/* BENEFITS GRID */
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:40px;}
+.benefit-card{background:#0d0d0d;border:1px solid #252525;border-radius:3px;padding:24px;}
+.benefit-icon{font-size:28px;margin-bottom:12px;display:block;}
+.benefit-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;margin-bottom:8px;color:#F7F5F0;}
+.benefit-desc{font-size:12px;color:#888;line-height:1.65;}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:40px;}
+.process-step{background:#0d0d0d;border:1px solid #252525;border-radius:3px;padding:20px;text-align:center;border-left:3px solid #FF1F8E;}
+.step-num{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:#FF6B00;margin-bottom:8px;}
+.step-title{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;margin-bottom:8px;color:#F7F5F0;}
+.step-desc{font-size:12px;color:#888;}
 
 /* BUTTONS */
-.btn{display:inline-block;background:#FF1F8E;color:#000;padding:13px 28px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;margin:0 8px;border:none;cursor:pointer;}
+.btn{display:inline-block;background:#FF1F8E;color:#000;padding:13px 28px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;border:none;cursor:pointer;}
 .btn:hover{opacity:.85;}
 
 /* FOOTER */
@@ -70,7 +72,8 @@ footer{background:#050505;border-top:1px solid #1a1a1a;padding:44px 20px 24px;}
 .foot-bot{display:flex;justify-content:space-between;gap:20px;font-size:10px;color:#444;flex-wrap:wrap;}
 
 @media(max-width:768px){
-.option-grid{grid-template-columns:1fr;}
+.benefits-grid{grid-template-columns:1fr;}
+.process-grid{grid-template-columns:1fr;}
 .foot-top{grid-template-columns:1fr;}
 }
 </style>
@@ -86,9 +89,9 @@ footer{background:#050505;border-top:1px solid #1a1a1a;padding:44px 20px 24px;}
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="coaching.html" class="active">Coaching</a>
+      <a href="coaching.html">Coaching</a>
       <a href="workshop-series.html">Workshops</a>
-      <a href="custom-builds.html">Custom Builds</a>
+      <a href="custom-builds.html" class="active">Custom Builds</a>
       <a href="fl-family-law.html">Pre-Built Suites</a>
       <a href="about.html">About</a>
       <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="nav-cta">Book a Call</a>
@@ -98,48 +101,47 @@ footer{background:#050505;border-top:1px solid #1a1a1a;padding:44px 20px 24px;}
 
 <div class="page-hdr">
   <div class="ph-inner">
-    <div class="pre">— Implementation & Training</div>
-    <h1>Coaching & Membership</h1>
-    <p>Done-for-you installation, customization, and training. Choose annual membership for bot updates and webinars, or private coaching for hands-on implementation with your choice of coach.</p>
+    <div class="pre">— Built for Your Firm</div>
+    <h1>Custom AI Builds</h1>
+    <p>Your firm, your workflows, your rules. We build custom AI systems scoped exactly to what you need. You own it. No subscriptions. Done-for-you installation and training included.</p>
   </div>
 </div>
 
 <div class="section">
   <div class="s-inner">
-    <div class="sec-label">— Choose Your Path</div>
-    <h2 class="sec-head">Two Coaching Options</h2>
+    <div class="sec-label">— Why Custom</div>
+    <h2 class="sec-head">When Pre-Built Isn't Enough</h2>
     
-    <div class="option-grid">
-      <div class="option-card">
-        <div class="option-type">For Bot Updates & Community</div>
-        <div class="option-title">Annual Membership</div>
-        <div class="option-price">$3,500</div>
-        <div class="option-desc">Keep your bots current. Stay connected. Monthly webinars with Leisa.</div>
-        <ul class="option-features">
-          <li>Annual patches and updates to all bots</li>
-          <li>Monthly live webinar (education, Q&A, updates)</li>
-          <li>Two annual group bot review sessions</li>
-          <li>Member consulting rate $300/hr vs $400/hr</li>
-          <li>First access to every new bot</li>
-          <li>Founding Member rate locked for life</li>
-        </ul>
-        <a href="annual-membership.html" class="btn">View Details</a>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <span class="benefit-icon">🎯</span>
+        <div class="benefit-title">Exact Scope</div>
+        <div class="benefit-desc">Only what you need. No bloat. No paying for features you'll never use.</div>
       </div>
-
-      <div class="option-card">
-        <div class="option-type">For Done-For-You Setup</div>
-        <div class="option-title">Private Coaching</div>
-        <div class="option-price">$5,000</div>
-        <div class="option-desc">Hands-on installation and customization. Work with your choice of coach.</div>
-        <ul class="option-features">
-          <li>Pre-session strategy call (free)</li>
-          <li>Florida Ethics Workflow pre-installed</li>
-          <li>Done-for-you installation of your systems</li>
-          <li>Customization to your firm's voice & workflows</li>
-          <li>Staff training included</li>
-          <li>Choose your coach: Attorney or Engineer</li>
-        </ul>
-        <a href="private-coaching.html" class="btn">View Details</a>
+      <div class="benefit-card">
+        <span class="benefit-icon">🏠</span>
+        <div class="benefit-title">You Own It</div>
+        <div class="benefit-desc">Outright ownership. No vendor lock-in. No subscription. It's yours.</div>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">🎨</span>
+        <div class="benefit-title">Your Templates</div>
+        <div class="benefit-desc">Built to match your firm's language, structure, and workflows from day one.</div>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">📚</span>
+        <div class="benefit-title">Your Knowledge</div>
+        <div class="benefit-desc">Pre-loaded with statutes, caselaw, forms, and templates specific to your jurisdiction and practice area.</div>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">🤝</span>
+        <div class="benefit-title">Done-For-You</div>
+        <div class="benefit-desc">Installation, customization, staff training, and ongoing support all included.</div>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">💰</span>
+        <div class="benefit-title">ROI Fast</div>
+        <div class="benefit-desc">Typically recover investment within first 3-6 months of use on real cases.</div>
       </div>
     </div>
   </div>
@@ -147,25 +149,48 @@ footer{background:#050505;border-top:1px solid #1a1a1a;padding:44px 20px 24px;}
 
 <div class="section" style="background:#0d0d0d;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;">
   <div class="s-inner">
-    <div class="sec-label">— Special Offer</div>
-    <h2 class="sec-head">Combine Membership + Coaching</h2>
+    <div class="sec-label">— How It Works</div>
+    <h2 class="sec-head">The Custom Build Process</h2>
     
-    <div style="background:#050505;border:1px solid #252525;border-radius:3px;padding:32px;margin-bottom:40px;">
-      <p style="font-size:13px;color:#888;margin-bottom:16px;line-height:1.75;">Workshop members can add a <strong>$2,500 coaching add-on</strong> for 8 hours of flexible 1-on-1 sessions. Mix 1-hour and 30-minute increments. Use within 12 months. Choose your coach.</p>
-      <p style="font-size:13px;color:#888;">This gives you the community and updates of membership plus hands-on implementation support.</p>
-      <a href="annual-membership.html#addon" class="btn" style="margin-top:20px;">Learn About Add-On</a>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-title">Strategy Call</div>
+        <div class="step-desc">Scoping discovery. We talk through what you need, how you work, what success looks like.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-title">Proposal</div>
+        <div class="step-desc">Detailed scope, pricing, timeline, implementation plan. You review and approve.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-title">Build</div>
+        <div class="step-desc">We build, test, and customize to your templates and firm standards. Iterative feedback.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-title">Delivery</div>
+        <div class="step-desc">Installation, training, go-live. Your firm owns and operates independently.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">5</div>
+        <div class="step-title">Membership</div>
+        <div class="step-desc">Optional annual membership for bot updates and consulting access.</div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="section">
   <div class="s-inner">
-    <div class="sec-label">— Next Steps</div>
-    <h2 class="sec-head">Ready to Get Started?</h2>
+    <div class="sec-label">— Pricing</div>
+    <h2 class="sec-head">Investment Range</h2>
     
-    <div style="background:#0d0d0d;border:1px solid #1a1a1a;border-radius:3px;padding:40px;text-align:center;">
-      <p style="font-size:14px;color:#888;margin-bottom:20px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.75;">Book a free 30-minute exploration call. We'll talk through which option makes sense for your firm and what implementation looks like.</p>
-      <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="btn">Schedule Exploration Call</a>
+    <div style="background:#0d0d0d;border:1px solid #252525;border-radius:3px;padding:40px;text-align:center;max-width:600px;margin:0 auto;">
+      <p style="font-size:13px;color:#888;margin-bottom:16px;">Custom builds start at <strong>$15,000</strong> and are scoped based on complexity, integration needs, and scope of customization.</p>
+      <p style="font-size:12px;color:#666;margin-bottom:24px;">Typical range: $15K–$25K depending on scope. Payment plans available.</p>
+      <a href="https://calendly.com/leisawintz/lal-custom-ai-strategy" target="_blank" class="btn">Schedule Strategy Call</a>
     </div>
   </div>
 </div>
