@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LAL Annual Membership — Keep Your Bots Current</title>
+<meta name="description" content="Legal Authority Lab Annual Membership. $3,500/year. Keep your bots updated, monthly webinars with Leisa, exclusive member benefits."/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0A0A0A;color:#F7F5F0;font-family:'Barlow',sans-serif;font-size:15px;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#0A0A0A;}::-webkit-scrollbar-thumb{background:#333;border-radius:2px;}
+.colorbar{height:4px;background:linear-gradient(to right,#FF1F8E 25%,#FF6B00 25% 50%,#C8D400 50% 75%,#00B5B8 75%);position:sticky;top:0;z-index:300;}
+
+/* NAV */
+nav{background:#0A0A0A;border-bottom:1px solid #1e1e1e;position:sticky;top:4px;z-index:200;}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:54px;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:9px;}
+.logo-mark{width:30px;height:30px;border:1.5px solid #FF1F8E;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
+.logo-mark span{display:block;height:2px;border-radius:1px;}
+.logo-mark span:nth-child(1){width:18px;background:#FF1F8E;}
+.logo-mark span:nth-child(2){width:12px;background:#FF6B00;}
+.logo-mark span:nth-child(3){width:7px;background:#C8D400;}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;line-height:1.1;}
+.logo-text em{display:block;font-style:normal;font-size:8px;font-weight:400;color:#444;letter-spacing:1px;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{font-size:12px;font-weight:500;color:#555;transition:color .15s;}
+.nav-links a:hover,.nav-links a.active{color:#F7F5F0;}
+.nav-cta{background:#FF1F8E!important;color:#000!important;padding:6px 14px;border-radius:2px;font-weight:700!important;font-size:11px!important;}
+
+/* PAGE HEADER */
+.page-hdr{background:#0d0d0d;border-bottom:1px solid #1a1a1a;padding:56px 20px 44px;}
+.ph-inner{max-width:1140px;margin:0 auto;}
+.pre{font-size:9px;text-transform:uppercase;letter-spacing:3px;color:#FF6B00;font-weight:700;margin-bottom:12px;}
+.page-hdr h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,7vw,56px);font-weight:900;line-height:0.95;letter-spacing:-1px;margin-bottom:14px;}
+.page-hdr p{font-size:14px;color:#888;max-width:660px;line-height:1.75;}
+
+/* SECTIONS */
+.section{padding:56px 20px;}
+.s-inner{max-width:1140px;margin:0 auto;}
+.sec-label{font-size:9px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #252525;}
+.sec-head{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,5vw,46px);font-weight:900;line-height:1.0;letter-spacing:-0.5px;margin-bottom:24px;}
+
+/* PRICING CARD */
+.pricing-card{background:#0d0d0d;border:2px solid #252525;border-radius:3px;padding:40px;text-align:center;max-width:600px;margin:0 auto 40px;}
+.price-big{font-family:'Barlow Condensed',sans-serif;font-size:56px;font-weight:900;color:#FF1F8E;margin-bottom:8px;}
+.price-sub{font-size:14px;color:#888;margin-bottom:24px;}
+.price-features{text-align:left;font-size:13px;color:#888;line-height:1.8;margin-bottom:24px;}
+.price-features li{list-style:none;margin-bottom:10px;padding-left:20px;position:relative;}
+.price-features li::before{content:'✓';position:absolute;left:0;color:#C8D400;font-weight:700;font-size:16px;}
+
+/* BUTTONS */
+.btn{display:inline-block;background:#FF1F8E;color:#000;padding:13px 28px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;transition:opacity .15s;margin:0 8px;border:none;cursor:pointer;}
+.btn:hover{opacity:.85;}
+.btn-secondary{background:#C8D400;color:#000;}
+
+/* ADD-ON SECTION */
+.addon-section{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:3px;padding:32px;margin-bottom:40px;}
+.addon-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;margin-bottom:16px;color:#C8D400;}
+.addon-desc{font-size:13px;color:#888;margin-bottom:20px;}
+.addon-price{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;color:#FF6B00;margin-bottom:16px;}
+
+/* CTA SECTION */
+.cta-section{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:3px;padding:40px;text-align:center;margin-bottom:40px;}
+.cta-section h3{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;margin-bottom:12px;color:#C8D400;}
+.cta-section p{font-size:13px;color:#888;margin-bottom:20px;max-width:500px;margin-left:auto;margin-right:auto;}
+
+/* FOOTER */
+footer{background:#050505;border-top:1px solid #1a1a1a;padding:44px 20px 24px;}
+.foot-inner{max-width:1140px;margin:0 auto;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px;padding-bottom:28px;border-bottom:1px solid #1a1a1a;margin-bottom:20px;}
+.fbrand p{font-size:11px;color:#555;line-height:1.65;margin-top:4px;}
+.flinks h5{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;color:#F7F5F0;}
+.flinks a{display:block;font-size:11px;color:#555;margin-bottom:6px;transition:color .15s;}
+.flinks a:hover{color:#F7F5F0;}
+.foot-bot{display:flex;justify-content:space-between;gap:20px;font-size:10px;color:#444;flex-wrap:wrap;}
+
+@media(max-width:768px){
+.pricing-card{padding:24px;}
+.foot-top{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="colorbar"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><span></span><span></span><span></span></div>
+      <div class="logo-text">Legal Authority Lab<em>AI Built for Law Firms</em></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="fl-family-law.html">Products</a>
+      <a href="master-valuator.html">Master Valuator</a>
+      <a href="about.html">About</a>
+      <a href="workshop-series.html">Workshops</a>
+      <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="nav-cta">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <div class="ph-inner">
+    <div class="pre">— Keep Current</div>
+    <h1>LAL Annual Membership</h1>
+    <p>Stay connected. Keep your bots updated. Get exclusive member benefits. Founding Member rate locked for life.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="s-inner">
+    <div class="pricing-card">
+      <div class="price-big">$3,500</div>
+      <div class="price-sub">Full year — July 2026 to June 2027</div>
+      <ul class="price-features">
+        <li>Annual patches and updates to all your bots</li>
+        <li>Monthly live webinar — education, updates, live Q&A with Leisa</li>
+        <li>Two annual group bot review and improvement sessions</li>
+        <li>Member consulting rate $300/hr vs $400/hr standard</li>
+        <li>First access to every new bot and research tool</li>
+        <li>Founding Member rate locked for life at sign-up</li>
+      </ul>
+      <a href="https://buy.stripe.com/7sYaEYexKbhV5hK7h24ZG05" target="_blank" class="btn">Join Annual Membership</a>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="background:#0d0d0d;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;">
+  <div class="s-inner">
+    <div class="sec-label">— Add Coaching</div>
+    <h2 class="sec-head">Add Private Coaching</h2>
+    
+    <div class="addon-section">
+      <div class="addon-title">Private Coaching Retainer</div>
+      <div class="addon-price">$2,500</div>
+      <div class="addon-desc">Add to your membership for done-for-you installation and customization</div>
+      <ul class="price-features">
+        <li>Pre-session strategy call — does not count against retainer</li>
+        <li>Ethics workflow pre-installed before we start anything</li>
+        <li>Done-for-you installation of all systems you've purchased</li>
+        <li>Customization to your firm's voice, templates, and workflows</li>
+        <li>Staff training through coaching sessions</li>
+        <li>20% discount on all LAL workshops for 12 months</li>
+      </ul>
+      <div style="margin-top:20px;font-size:12px;color:#666;border-top:1px solid #252525;padding-top:16px;">
+        <p><strong>Session rates on top of retainer:</strong></p>
+        <p style="margin-top:8px;">2-Hour Zoom — $600 | 1-Hour Zoom — $350 | 30-Min Call — $150</p>
+      </div>
+      <a href="https://calendly.com/leisawintz/lal-coaching-initial" target="_blank" class="btn" style="margin-top:20px;">Schedule Coaching Consultation</a>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="s-inner">
+    <div class="sec-label">— Get Started</div>
+    <h2 class="sec-head">Ready to Stay Connected?</h2>
+    
+    <div class="cta-section">
+      <h3>Questions About Membership?</h3>
+      <p>Book a free 30-minute exploration call to talk through what makes sense for your firm.</p>
+      <a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank" class="btn btn-secondary">Free Exploration Call</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="fbrand">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;">Legal Authority Lab</div>
+        <p>AI workflow systems for attorneys and law firms. Independent company. Founded April 28, 2026.</p>
+      </div>
+      <div class="flinks"><h5>Products</h5><a href="fl-family-law.html">Systems & Bots</a><a href="private-coaching.html">Private Coaching</a><a href="annual-membership.html">Membership</a></div>
+      <div class="flinks"><h5>Learn</h5><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="workshop-series.html">Workshops</a></div>
+      <div class="flinks"><h5>Connect</h5><a href="https://www.facebook.com/share/g/17hGx79vhP/" target="_blank">Facebook</a><a href="https://calendly.com/leisawintz/legal-authority-lab" target="_blank">Book a Call</a><a href="about.html">About</a></div>
+    </div>
+    <div class="foot-bot">
+      <p>© 2026 Legal Authority Lab · Independent company · legalauthoritylab.com</p>
+      <p>AI built for law firms. Powered by real lawyers.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
